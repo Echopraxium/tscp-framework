@@ -1,0 +1,4 @@
+Structuring Questions for Quantum Core:
+1. How does the observer-observed separation (INV_31) affect the phase distance at L: 2.5?
+2. Is the energy balance (INV_02) maintained during the transition from M2 to M3?
+3. What are the specific autopoietic capabilities required for this quantum seed?

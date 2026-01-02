@@ -1,0 +1,5 @@
+QUESTION STRUCTURANTE : DUALITÉ GANKER vs TRADER
+-----------------------------------------------
+Objectif : Valider l'isomorphisme de la collision Prédateur/Producteur.
+- Comparaison : Distance de Phase entre tscp:m0_ganker et tscp:m0_trader.
+- Hypothèse : Le score Dφ doit être identique à la collision Swarm vs Institution du modèle GameStop.

@@ -1,0 +1,28 @@
+===========================================================
+TSCP FRAMEWORK - TECHNICAL SAFE NOTES (END OF PHASE 1)
+===========================================================
+
+1. BASIC COMMANDS:
+------------------
+- Build & Run: dotnet run --project src/TSCP.CLI
+- Clean cache: dotnet clean (manually delete bin/obj if needed)
+
+2. URI CONFIGURATION (CRITICAL):
+--------------------------------
+- Resolved Issue: "Invalid URI" on Windows local filesystem.
+- Solution: Loader.fs loads the ontology MANUALLY before the catalog.
+- Context: Use "Embedded Context" in JSON-LD files to bypass local resolution errors.
+
+3. INDEX STRUCTURE:
+-------------------
+- File: catalog/seeds-catalog.jsonld
+- Must contain the full @context block with "tscp" and "rdfs" for the parser to function correctly.
+
+4. SUCCESS VERIFICATION:
+------------------------
+- On startup, message should read: "[SUCCESS] 23 triples ingested total."
+- If counter drops to 0: Verify .jsonld file copying in /bin/Debug/net10.0/ via the .fsproj settings.
+
+===========================================================
+READY FOR PHASE 2: TENSOR LOGIC & SIMILARITY
+===========================================================

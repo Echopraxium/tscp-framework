@@ -1,0 +1,12 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@id": "tscp:M0/Yggdrasil_Core",
+  "@type": "tscp:M0/Instance",
+  "facets": {
+    "Structural_Cohesion": 1.0,
+    "World_Connectivity": 1.0,
+    "Entropy_Resistance": 0.7
+  },
+  "tags": ["Cosmology", "Axis_Mundi", "Norse_Myth"],
+  "comment": "Modèle d'un système d'interconnectivité universelle et de stabilité topologique."
+}

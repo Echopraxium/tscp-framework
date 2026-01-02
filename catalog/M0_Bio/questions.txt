@@ -1,0 +1,7 @@
+QUESTION STRUCTURANTE : TRANSDUCTION ÉNERGÉTIQUE
+-----------------------------------------------
+Objectif : Comparer l'efficience systémique de différents modes de conversion.
+- Comparaison A : Mitochondrie (Chimique) vs Chloroplaste (Lumière). 
+  Hypothèse : La Mitochondrie présente une signature d'efficience (m3:Efficiency) plus stable.
+- Comparaison B : Luciférase (Emission) vs Cytochrome-C (Transfert).
+  Question : La transduction vers la lumière (Luciférase) induit-elle une perte de résilience ?

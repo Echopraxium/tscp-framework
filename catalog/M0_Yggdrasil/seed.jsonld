@@ -1,0 +1,17 @@
+{
+  "@graph": [
+    {
+      "system_id": "tscp:m0_yggdrasil_core",
+      "description": "Structure cosmogonique des 9 mondes",
+      "observations": [
+        { "invariant": "m3:Stratification", "value": 1.0 },
+        { "invariant": "m3:Resilience", "value": 0.98 }
+      ],
+      "facets": {
+        "Type": "Axis",
+        "Domain": "Cosmology",
+        "Hierarchy": "Absolute"
+      }
+    }
+  ]
+}

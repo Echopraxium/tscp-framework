@@ -1,0 +1,19 @@
+digraph TSCP {
+  rankdir=LR; node [shape=box, style=rounded, fontname=Arial];
+  tscp_layer_m3 [label="Layer M3: Ontological Invariants\n(META)", fillcolor=lightgrey, style=filled];
+  tscp_layer_m2 [label="Layer M2: Observation Filters\n(META)", fillcolor=lightgrey, style=filled];
+  tscp_layer_m2 -> tscp_layer_m3 [label="DerivedFrom"];
+  tscp_layer_m1 [label="Layer M1: Operational Structures\n(META)", fillcolor=lightgrey, style=filled];
+  tscp_layer_m1 -> tscp_layer_m2 [label="ImplementedIn"];
+  tscp_m3_principe_systeme [label="Principe de Systeme\n(M3)", fillcolor=gold, style=filled];
+  tscp_m3_principe_systeme -> tscp_layer_m3 [label="Subordination"];
+  tscp_m0_gorilla_1 [label="Trader r/WSB Alpha\n(M0)", fillcolor=lightgrey, style=filled];
+  tscp_m0_gorilla_1 -> tscp_layer_m2 [label="InstanceOf"];
+  tscp_m0_gorilla_1 -> tscp_m3_principe_systeme [label="Subordination"];
+  tscp_m0_gorilla_2 [label="Trader r/WSB Beta\n(M0)", fillcolor=lightgrey, style=filled];
+  tscp_m0_gorilla_2 -> tscp_layer_m2 [label="InstanceOf"];
+  tscp_m0_gorilla_2 -> tscp_m3_principe_systeme [label="Subordination"];
+  tscp_m0_hedge_fund [label="Melvin Capital\n(M0)", fillcolor=lightgrey, style=filled];
+  tscp_m0_hedge_fund -> tscp_layer_m2 [label="InstanceOf"];
+  tscp_m0_hedge_fund -> tscp_m3_principe_systeme [label="Subordination"];
+}

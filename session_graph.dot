@@ -1,0 +1,12 @@
+digraph TSCP {
+    rankdir=LR;
+    node [shape=box, fontname="Arial"];
+    node0 [label="Loaded: GameStop_Squeeze"];
+    node1 [label="Chargé: GameStop_Squeeze"];
+    node2 [label="Chargé: GameStop_Squeeze"];
+    node3 [label="Chargé: GameStop_Squeeze"];
+    node4 [label="Chargé: GameStop_Squeeze"];
+    node5 [label="Chargé: GameStop_Squeeze"];
+    node6 [label="TSCP System initialized"];
+    node0 -> node6 [label="flow"];
+}

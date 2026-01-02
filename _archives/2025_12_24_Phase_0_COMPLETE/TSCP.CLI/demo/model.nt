@@ -1,0 +1,50 @@
+<https://tscp-framework.org/ontology/v1#layer_m3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#layer_m3> <http://www.w3.org/2000/01/rdf-schema#label> "Layer M3: Ontological Invariants" .
+<https://tscp-framework.org/ontology/v1#layer_m3> <https://tscp-framework.org/ontology/v1#Layer> "META" .
+<https://tscp-framework.org/ontology/v1#layer_m3> <https://tscp-framework.org/ontology/v1#Facette> "Invariant" .
+<https://tscp-framework.org/ontology/v1#layer_m3> <https://tscp-framework.org/ontology/v1#Facette> "Unity" .
+<https://tscp-framework.org/ontology/v1#layer_m3> <https://tscp-framework.org/ontology/v1#Facette> "Closure" .
+<https://tscp-framework.org/ontology/v1#layer_m2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#layer_m2> <http://www.w3.org/2000/01/rdf-schema#label> "Layer M2: Observation Filters" .
+<https://tscp-framework.org/ontology/v1#layer_m2> <https://tscp-framework.org/ontology/v1#Layer> "META" .
+<https://tscp-framework.org/ontology/v1#layer_m2> <https://tscp-framework.org/ontology/v1#Facette> "Paradigm" .
+<https://tscp-framework.org/ontology/v1#layer_m2> <https://tscp-framework.org/ontology/v1#Facette> "Filter" .
+<https://tscp-framework.org/ontology/v1#layer_m2> <https://tscp-framework.org/ontology/v1#Facette> "Interpretation" .
+<https://tscp-framework.org/ontology/v1#layer_m2> <https://tscp-framework.org/ontology/v1#DerivedFrom> <https://tscp-framework.org/ontology/v1#layer_m3> .
+<https://tscp-framework.org/ontology/v1#layer_m1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#layer_m1> <http://www.w3.org/2000/01/rdf-schema#label> "Layer M1: Operational Structures" .
+<https://tscp-framework.org/ontology/v1#layer_m1> <https://tscp-framework.org/ontology/v1#Layer> "META" .
+<https://tscp-framework.org/ontology/v1#layer_m1> <https://tscp-framework.org/ontology/v1#Facette> "Structure" .
+<https://tscp-framework.org/ontology/v1#layer_m1> <https://tscp-framework.org/ontology/v1#Facette> "Process" .
+<https://tscp-framework.org/ontology/v1#layer_m1> <https://tscp-framework.org/ontology/v1#Facette> "Rules" .
+<https://tscp-framework.org/ontology/v1#layer_m1> <https://tscp-framework.org/ontology/v1#ImplementedIn> <https://tscp-framework.org/ontology/v1#layer_m2> .
+<https://tscp-framework.org/ontology/v1#m3_principe_systeme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#m3_principe_systeme> <http://www.w3.org/2000/01/rdf-schema#label> "Principe de Systeme" .
+<https://tscp-framework.org/ontology/v1#m3_principe_systeme> <https://tscp-framework.org/ontology/v1#Layer> "M3" .
+<https://tscp-framework.org/ontology/v1#m3_principe_systeme> <https://tscp-framework.org/ontology/v1#Facette> "Emergence" .
+<https://tscp-framework.org/ontology/v1#m3_principe_systeme> <https://tscp-framework.org/ontology/v1#Facette> "Unite" .
+<https://tscp-framework.org/ontology/v1#m3_principe_systeme> <https://tscp-framework.org/ontology/v1#Subordination> <https://tscp-framework.org/ontology/v1#layer_m3> .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <http://www.w3.org/2000/01/rdf-schema#label> "Trader r/WSB Alpha" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <https://tscp-framework.org/ontology/v1#Layer> "M0" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <https://tscp-framework.org/ontology/v1#Facette> "HODL" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <https://tscp-framework.org/ontology/v1#Facette> "Resilience" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <https://tscp-framework.org/ontology/v1#Facette> "Meme-Culture" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <https://tscp-framework.org/ontology/v1#InstanceOf> <https://tscp-framework.org/ontology/v1#layer_m2> .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_1> <https://tscp-framework.org/ontology/v1#Subordination> <https://tscp-framework.org/ontology/v1#m3_principe_systeme> .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <http://www.w3.org/2000/01/rdf-schema#label> "Trader r/WSB Beta" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <https://tscp-framework.org/ontology/v1#Layer> "M0" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <https://tscp-framework.org/ontology/v1#Facette> "HODL" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <https://tscp-framework.org/ontology/v1#Facette> "YOLO" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <https://tscp-framework.org/ontology/v1#Facette> "Resilience" .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <https://tscp-framework.org/ontology/v1#InstanceOf> <https://tscp-framework.org/ontology/v1#layer_m2> .
+<https://tscp-framework.org/ontology/v1#m0_gorilla_2> <https://tscp-framework.org/ontology/v1#Subordination> <https://tscp-framework.org/ontology/v1#m3_principe_systeme> .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://tscp-framework.org/ontology/v1#> .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <http://www.w3.org/2000/01/rdf-schema#label> "Melvin Capital" .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <https://tscp-framework.org/ontology/v1#Layer> "M0" .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <https://tscp-framework.org/ontology/v1#Facette> "Short-Selling" .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <https://tscp-framework.org/ontology/v1#Facette> "Alpha-Generation" .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <https://tscp-framework.org/ontology/v1#Facette> "Risk-Management" .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <https://tscp-framework.org/ontology/v1#InstanceOf> <https://tscp-framework.org/ontology/v1#layer_m2> .
+<https://tscp-framework.org/ontology/v1#m0_hedge_fund> <https://tscp-framework.org/ontology/v1#Subordination> <https://tscp-framework.org/ontology/v1#m3_principe_systeme> .

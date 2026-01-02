@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "tscp": "https://raw.githubusercontent.com/Echopraxium/TSCP-Framework/main/Ontology/tscp-core.jsonld#",
+    "status": "tscp:engineStatus",
+    "triples": "tscp:triplesCount",
+    "layers": "tscp:activeLayers"
+  },
+  "@id": "tscp:Checkpoint/Phase1_Stabilized",
+  "@type": "tscp:M2/Observer_Snapshot",
+  "label": "TSCP Framework - Stable State 23 Triples",
+  "status": "OPERATIONAL",
+  "triples": 23,
+  "layers": ["M3/Invariant", "M2/Observer", "M1/Standard", "M0/Instance"],
+  "technical_metadata": {
+    "language": "F#",
+    "dotnet_version": "10.0",
+    "rdf_library": "dotNetRDF 3.x",
+    "io_strategy": "Manual_Ontology_Injection_Fallback"
+  },
+  "cli_commands": ["list", "stats", "debug", "grow", "exit"]
+}

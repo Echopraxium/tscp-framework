@@ -1,0 +1,31 @@
+{
+  "@context": {
+    "tscp": "http://tscp-framework.org/ontology#",
+    "@vocab": "http://tscp-framework.org/ontology#",
+    "system_id": "tscp:system_id",
+    "observations": "tscp:observations",
+    "invariant": "tscp:invariant",
+    "value": "tscp:value"
+  },
+  "@graph": [
+    {
+      "system_id": "QUANTUM_CORE_001",
+      "description": "Quantum Core System - Initial Systemic Seed",
+      "facets": {
+        "stability": "cryogenic",
+        "entanglement": "high"
+      },
+      "observations": [
+        { "invariant": "INV_01_Mass_Conservation", "value": 1.0 },
+        { "invariant": "INV_02_Energy_Balance", "value": 0.99 },
+        { "invariant": "INV_03_Information_Integrity", "value": 0.95 },
+        { "invariant": "INV_04_Structural_Stability", "value": 0.85 },
+        { "invariant": "INV_10_Isotropic_Consistency", "value": 0.90 },
+        { "invariant": "INV_11_Phase_Coherence", "value": 0.88 },
+        { "invariant": "INV_23_Antifragility_Response", "value": 0.70 },
+        { "invariant": "INV_36_Systemic_Identity", "value": 1.0 },
+        { "invariant": "INV_37_Emergence_Quantification", "value": 0.65 }
+      ]
+    }
+  ]
+}

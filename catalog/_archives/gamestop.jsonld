@@ -1,0 +1,12 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",",
+  "@id": "tscp:M0/GameStop_ShortSqueeze",
+  "@type": "tscp:M0/Instance",
+  "facets": {
+    "Volatility": 1.0,
+    "Collective_Leverage": 0.9,
+    "Antifragility": 0.8
+  },
+  "tags": ["Market_Shock", "Reddit", "Short_Squeeze"],
+  "comment": "Graine séminale analysant le découplage entre valeur fondamentale et dynamique de réseau."
+}

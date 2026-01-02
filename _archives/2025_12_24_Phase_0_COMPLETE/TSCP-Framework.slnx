@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/demo/">
+    <File Path="demo/Edotor -Online Graphviz Editor.url" />
+    <File Path="demo/GameStop_RDF_in_GraphViz.png" />
+    <File Path="demo/Howto TSCP.CLI.txt" />
+    <File Path="demo/JSON Viewer Online.url" />
+    <File Path="demo/model.dot" />
+    <File Path="demo/model.jsonld" />
+    <File Path="demo/model.nt" />
+    <File Path="demo/SPARQL Playground.url" />
+    <File Path="demo/SPARQL Queries for GameStop example.txt" />
+    <File Path="TSCP.Core.fsproj" />
+  </Folder>
+  <Folder Name="/demo_2/" />
+  <Project Path="TSCP.CLI/TSCP.CLI.fsproj" Id="a22d14d9-6cc8-4e86-9f2d-957ffe3feaa5" />
+  <Project Path="TSCP.Core/TSCP.Core.fsproj" />
+</Solution>

@@ -1,0 +1,6 @@
+QUESTION STRUCTURANTE : FILTRAGE RAKDOS & RÉCURSION
+--------------------------------------------------
+Objectif : Identifier les agents de persistance dans un système complexe.
+- Requête : Color=Rakdos AND CMC=2 AND Ability=Recursion.
+- Analyse : Étudier si la capacité de "récursion" (retour du cimetière) agit comme un mécanisme de Néguentropie (m3:Negentropy) face à l'agression adverse.
+- Isomorphisme : Comparer ce comportement au "Rebranding" d'entreprise en crise.

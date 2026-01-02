@@ -1,0 +1,20 @@
+QUESTIONS STRUCTURANTES : LES ÉTAPES DU SQUEEZE
+----------------------------------------------
+Objectif : Modéliser la transition d'un système chaotique vers un essaim cohérent.
+
+Étape 1 : Germination (L'étincelle r/WSB)
+- Question : Comment une analyse fondamentale (DeepFuckingValue) se transforme-t-elle en signal de résonance ?
+- Invariant : m3:Resonance (Montée en charge).
+
+Étape 2 : Formation du Swarm (La Cohésion des Gorilles)
+- Question : À quel point le signal devient-il isotrope (identique pour tous les agents) ?
+- Comparaison : Distance de Phase entre tscp:m0_gorilla_1 et tscp:m0_gorilla_2. 
+- Attendu : Dφ ≈ 0.50 (Signature de l'Essaim).
+
+Étape 3 : La Collision (Gamma/Short Squeeze)
+- Question : Que se passe-t-il lors de la rupture de la clôture sémantique du Hedge Fund ?
+- Comparaison : tscp:m0_gorilla_1 vs tscp:m0_hedge_fund.
+- Attendu : Dφ = 1.00 (Rupture Critique).
+
+Étape 4 : L'Entropie de Régulation (Le bouton "Buy" désactivé)
+- Question : L'intervention externe (Robinhood) est-elle une injection d'entropie forcée pour briser l'isotrope du Swarm ?

@@ -1,0 +1,12 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "system_id": "tscp:M0/EVE_Online_Economy",
+  "description": "Player-driven hyper-capitalist virtual economy with complex supply chains.",
+  "observations": [
+    { "invariant": "m3:Interface", "value": 0.85 },
+    { "invariant": "m3:Conservation", "value": 0.70 },
+    { "invariant": "m3:Efficiency", "value": 0.92 },
+    { "invariant": "m3:Behavior", "value": 0.88 },
+    { "invariant": "m3:Path", "value": 0.75 }
+  ]
+}

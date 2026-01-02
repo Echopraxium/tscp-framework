@@ -1,0 +1,17 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@id": "tscp:M0/DAO_Governance_System",
+  "@type": ["tscp:M1/Automated_Governance", "tscp:M3/Consensus_Structure"],
+  "facets": {
+    "Decentralization": 1.0,
+    "Transparency": 1.0,
+    "Execution_Rigidity": 0.9
+  },
+  "tags": ["Blockchain", "Smart_Contract", "Algorithmic_Trust"],
+  "axioms": {
+    "execution_engine": "EVM",
+    "incentive_structure": "Token_Incentives",
+    "security_protocol": "Proof_of_Stake"
+  },
+  "comment": "Modèle de gouvernance décentralisée où la loi est exécutée par le code."
+}

@@ -1,0 +1,34 @@
+TSCP_Root/
+├── TSCP.sln
+├── Ontology/
+│   └── tscp-core.jsonld         (Semantic Source of Truth)
+├── catalog/                     (M0 Historical Mapping Examples)
+│   ├── gamestop_squeeze.jsonld
+│   ├── mtg_massive.jsonld
+│   ├── yggdrasil_core.jsonld
+│   ├── eve_online_economy.jsonld
+│   ├── nintendo_lateral_thinking.jsonld
+│   ├── venice_hydraulic.jsonld
+│   └── dao_governance.jsonld
+├── src/
+│   ├── TSCP.Core/
+│   │   ├── TSCP.Core.fsproj
+│   │   ├── Domain.fs            (The 35 Invariants)
+│   │   └── Logic.fs             (Representation Functor)
+│   ├── TSCP.Session/
+│   │   ├── TSCP.Session.fsproj
+│   │   └── State.fs             (M2 Plexus & Google Identity)
+│   ├── TSCP.CLI/
+│   │   ├── TSCP.CLI.fsproj
+│   │   └── Program.fs
+│   └── TSCP.GUI/
+│       ├── TSCP.GUI.fsproj
+│       ├── Auth.fs              (Google OAuth2 Implementation)
+│       ├── MainWindow.fs
+│       └── Program.fs
+├── docs/
+│   └── theory/
+│       ├── m3_descriptions.md
+│       └── negentropy.md        (M2 Formalization)
+└── scripts/
+    └── build.sh                 (Automation script)

@@ -1,0 +1,15 @@
+QUESTION STRUCTURANTE : L'HOMÉOSTASIE DE LA LAGUNE
+-------------------------------------------------
+Objectif : Comprendre comment un système maintient sa forme malgré un flux constant.
+
+- Le Pôle Structurel (Le Conseil des Dix) : 
+  Vise la stabilité politique et la surveillance. 
+  Signature : Haute Stratification (m3:Stratification), Contrôle de l'Entropie.
+
+- Le Pôle Environnemental (L'Adriatique/MOSE) : 
+  Vise la dissolution de la structure par l'érosion. 
+  Signature : Haute Entropie (m3:Entropy).
+
+Question : La "Sérénissime" est-elle un système stable ou un système en état de dissipation ralentie ? 
+
+Comparaison : Distance de Phase entre la Venise du XVIe siècle (Apogée de l'Homéostasie) et la Venise actuelle (Tourisme/Entropie). L'Isotropie est-elle rompue ?

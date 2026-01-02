@@ -1,0 +1,2 @@
+@prefix tscp: <http://tscp.org/schema#> .
+tscp:session_state_L0 a tscp:Session ; tscp:activeLayer 0 .

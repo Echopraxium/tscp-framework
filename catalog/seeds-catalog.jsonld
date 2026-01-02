@@ -1,0 +1,78 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@graph": [
+    {
+      "system_id": "tscp:M0/GameStop_Squeeze",
+      "type": "tscp:SemanticSeed",
+      "description": "2021 financial short squeeze led by retail investors.",
+      "observations": [
+        { "invariant": "m3:Energy", "value": 0.98 },
+        { "invariant": "m3:Bifurcation", "value": 0.92 },
+        { "invariant": "m3:Resonance", "value": 0.95 },
+        { "invariant": "m3:Negentropy", "value": 0.88 },
+        { "invariant": "m3:Entropy", "value": 0.40 }
+      ]
+    },
+    {
+      "system_id": "tscp:M0/MTG_Massive",
+      "type": "tscp:SemanticSeed",
+      "description": "Magic: The Gathering 'Massive' deck synergy model.",
+      "observations": [
+        { "invariant": "m3:Structure", "value": 0.95 },
+        { "invariant": "m3:Complexity", "value": 0.90 },
+        { "invariant": "m3:Negentropy", "value": 0.82 },
+        { "invariant": "m3:Homeostasis", "value": 0.75 }
+      ]
+    },
+    {
+      "system_id": "tscp:M0/Yggdrasil_Core",
+      "type": "tscp:SemanticSeed",
+      "description": "The World Tree: absolute systemic stratification.",
+      "observations": [
+        { "invariant": "m3:Stratification", "value": 1.0 },
+        { "invariant": "m3:System", "value": 1.0 },
+        { "invariant": "m3:Resilience", "value": 0.90 }
+      ]
+    },
+    {
+      "system_id": "tscp:M0/EVE_Online_Economy",
+      "type": "tscp:SemanticSeed",
+      "description": "Hyper-capitalist virtual economy structure.",
+      "observations": [
+        { "invariant": "m3:Efficiency", "value": 0.92 },
+        { "invariant": "m3:Conservation", "value": 0.70 },
+        { "invariant": "m3:Behavior", "value": 0.88 }
+      ]
+    },
+    {
+      "system_id": "tscp:M0/Nintendo_Lateral_Thinking",
+      "type": "tscp:SemanticSeed",
+      "description": "Philosophy of withered technology and innovation constraints.",
+      "observations": [
+        { "invariant": "m3:Principle", "value": 0.95 },
+        { "invariant": "m3:Constraint", "value": 0.90 },
+        { "invariant": "m3:Efficiency", "value": 0.98 }
+      ]
+    },
+    {
+      "system_id": "tscp:M0/Venice_Hydraulic",
+      "type": "tscp:SemanticSeed",
+      "description": "Hydraulic homeostasis and maritime engineering of Venice.",
+      "observations": [
+        { "invariant": "m3:Homeostasis", "value": 0.95 },
+        { "invariant": "m3:Geometry", "value": 0.90 },
+        { "invariant": "m3:Space", "value": 0.85 }
+      ]
+    },
+    {
+      "system_id": "tscp:M0/DAO_Governance",
+      "type": "tscp:SemanticSeed",
+      "description": "Decentralized algorithmic coordination model.",
+      "observations": [
+        { "invariant": "m3:Agent", "value": 0.90 },
+        { "invariant": "m3:Role", "value": 0.85 },
+        { "invariant": "m3:Identity", "value": 0.92 }
+      ]
+    }
+  ]
+}

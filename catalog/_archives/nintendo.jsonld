@@ -1,0 +1,12 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@id": "tscp:M1/Nintendo_Lateral_Thinking",
+  "@type": "tscp:M1/Standard",
+  "facets": {
+    "Hardware_Abstraction": 0.9,
+    "Legacy_Utilization": 1.0,
+    "UX_Priority": 0.9
+  },
+  "tags": ["Blue_Ocean", "Gunpei_Yokoi", "Innovation"],
+  "comment": "Standard de design basé sur la pensée latérale avec des technologies éprouvées."
+}

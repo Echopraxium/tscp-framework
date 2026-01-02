@@ -1,0 +1,16 @@
+QUESTION STRUCTURANTE : DUALITÉ GANKER vs TRADER
+QUESTION STRUCTURANTE : LE CRÉATIF vs LE CHEF D'ENTREPRISE
+---------------------------------------------------------
+Objectif : Analyser l'Isotropie (m3:Isotropy) de la PI face à la rigidité structurelle.
+
+- Le Pôle Créatif (Miyamoto-type) : 
+  Vise la rupture et l'expérience utilisateur. 
+  Signature : Haute Énergie (m3:Energy), forte Néguentropie (m3:Negentropy).
+  
+- Le Pôle Direction (Yamauchi/Corporate-type) : 
+  Vise la clôture du système et la rentabilité. 
+  Signature : Haute Stratification (m3:Stratification), Contrôle de l'Entropie (m3:Entropy).
+
+Question : Comment l'Isotropie permet-elle à une licence (ex: Mario, Zelda) de rester identique à elle-même (M3) tout en subissant une métamorphose opérationnelle (M0) à chaque nouvelle console ?
+
+Comparaison : Distance de Phase entre "Innovation Disruptive" (Wii) et "Continuité Conservatrice" (GameCube).

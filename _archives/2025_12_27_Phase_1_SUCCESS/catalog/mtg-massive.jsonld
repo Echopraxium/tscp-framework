@@ -1,0 +1,15 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@id": "tscp:M0/MTG_Massive_System",
+  "@type": ["tscp:M1/Grammar_Engine", "tscp:M3/Combinatorial_System"],
+  "facets": {
+    "Combinatorial_Explosion": 1.0,
+    "Strategic_Depth": 0.98,
+    "Rule_Interference": 0.85
+  },
+  "tags": ["Turing_Complete", "CCG", "Wizards_of_the_Coast"],
+  "axioms": {
+    "pool_size": 300000,
+    "mechanics": ["Graveyard_Recursion", "Mana_Curve", "Color_Pie"]
+  }
+}

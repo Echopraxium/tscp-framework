@@ -1,0 +1,17 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@id": "tscp:M0/Venice_Hydraulic_System",
+  "@type": ["tscp:M1/Hydraulic_Architecture", "tscp:M3/Fragile_Equilibrium"],
+  "facets": {
+    "Hydro_Dependency": 1.0,
+    "Historical_Density": 0.95,
+    "Erosive_Stress": 0.8
+  },
+  "tags": ["Urbanism", "Hydraulics", "Lagoon_Homeostasis"],
+  "axioms": {
+    "transport_bus": "Canal_System",
+    "structural_unit": "Oak_Piles",
+    "regulator": "MOSE_Barrier"
+  },
+  "comment": "Graine séminale d'un système urbain défini par sa lutte contre l'entropie saline."
+}

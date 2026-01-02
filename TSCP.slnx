@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TSCP.Core/TSCP.Core.fsproj" />
+    <Project Path="src/TSCP.Session/TSCP.Session.fsproj" />
+    <Project Path="src/TSCP.CLI/TSCP.CLI.fsproj" />
+    <Project Path="src/TSCP.GUI/TSCP.GUI.fsproj" />
+    <Project Path="src/TSCP.Server/TSCP.Server.fsproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="src/TSCP.Tests/TSCP.Tests.fsproj" />
+  </Folder>
+</Solution>

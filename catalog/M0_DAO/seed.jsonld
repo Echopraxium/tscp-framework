@@ -1,0 +1,17 @@
+{
+  "@graph": [
+    {
+      "system_id": "tscp:m0_dao_governance",
+      "description": "Organisation Autonome Décentralisée",
+      "observations": [
+        { "invariant": "m3:Autonomy", "value": 0.85 },
+        { "invariant": "m3:SemanticClosure", "value": 0.90 }
+      ],
+      "facets": {
+        "Tech": "Blockchain",
+        "Protocol": "Ethereum",
+        "Type": "Governance"
+      }
+    }
+  ]
+}

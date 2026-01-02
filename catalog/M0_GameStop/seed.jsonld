@@ -1,0 +1,22 @@
+{
+  "@graph": [
+    {
+      "system_id": "tscp:m0_gorilla_1",
+      "description": "Trader Retail Alpha (Swarm)",
+      "observations": [
+        { "invariant": "m3:Energy", "value": 0.95 },
+        { "invariant": "m3:Negentropy", "value": 0.88 }
+      ],
+      "facets": { "Side": "Long", "Role": "Swarm", "Origin": "Reddit" }
+    },
+    {
+      "system_id": "tscp:m0_hedge_fund",
+      "description": "Melvin Capital (Institutional)",
+      "observations": [
+        { "invariant": "m3:Entropy", "value": 0.90 },
+        { "invariant": "m3:Resilience", "value": 0.30 }
+      ],
+      "facets": { "Side": "Short", "Role": "Institution", "Origin": "WallStreet" }
+    }
+  ]
+}

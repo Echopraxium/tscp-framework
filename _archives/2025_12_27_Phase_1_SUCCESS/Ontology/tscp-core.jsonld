@@ -1,0 +1,54 @@
+{
+  "@context": {
+    "tscp": "https://raw.githubusercontent.com/Echopraxium/TSCP-Framework/main/Ontology/tscp-core.jsonld#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "label": "rdfs:label",
+    "comment": "rdfs:comment",
+    "facets": {
+      "@id": "tscp:hasFacet",
+      "@container": "@index"
+    },
+    "tags": {
+      "@id": "tscp:hasTag",
+      "@container": "@set"
+    },
+    "axioms": {
+      "@id": "tscp:hasAxiom",
+      "@container": "@index"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "tscp:M3/Invariant",
+      "@type": "rdfs:Class",
+      "label": "Invariant Layer (M3)",
+      "comment": "Universal laws and constants governing all systems."
+    },
+    {
+      "@id": "tscp:M3/Antifragility",
+      "@type": "tscp:M3/Invariant",
+      "label": "Antifragility Law",
+      "comment": "Systems that gain from disorder and volatility."
+    },
+    {
+      "@id": "tscp:M2/Observer",
+      "@type": "rdfs:Class",
+      "label": "Observer Layer (M2)",
+      "comment": "The perspective, resolution, and intention of the analyst."
+    },
+    {
+      "@id": "tscp:M1/Standard",
+      "@type": "rdfs:Class",
+      "label": "Standard Layer (M1)",
+      "comment": "Reusable protocols, buses, and architectural patterns."
+    },
+    {
+      "@id": "tscp:M0/Instance",
+      "@type": "rdfs:Class",
+      "label": "Instance Layer (M0)",
+      "comment": "Specific real-world systems or semantic seeds."
+    }
+  ]
+}

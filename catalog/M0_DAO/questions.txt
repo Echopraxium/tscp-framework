@@ -1,0 +1,15 @@
+QUESTION STRUCTURANTE : L'AUTONOMIE ET LA CLÔTURE SÉMANTIQUE
+-----------------------------------------------------------
+Objectif : Analyser si un code peut réellement s'auto-gouverner sans intervention externe.
+
+- Le Pôle Algorithmique (Smart Contract) : 
+  Vise l'exécution parfaite sans interprétation. 
+  Signature : Clôture Sémantique (m3:SemanticClosure) maximale.
+
+- Le Pôle Humain (Votants/Gouvernance) : 
+  Introduction de l'imprévisibilité et du comportement. 
+  Signature : Énergie (m3:Energy), risque d'Entropie décisionnelle.
+
+Question : Le "The DAO Event" (2016) était-il une rupture de la Clôture Sémantique ou une expression inattendue de celle-ci ?
+
+Comparaison : Comparer une DAO avec un système biologique (ex: Colonie de fourmis). Existe-t-il un isomorphisme dans la distribution de l'intelligence ?

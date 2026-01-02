@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "tscp": "https://raw.githubusercontent.com/Echopraxium/TSCP-Framework/main/Ontology/tscp-core.jsonld#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "label": "rdfs:label",
+    "contains": { "@id": "tscp:contains", "@type": "@id" }
+  },
+  "@id": "tscp:M0/GlobalCatalog",
+  "label": "TSCP Global Seed Catalog",
+  "contains": [
+    "tscp:M0/GameStop_Squeeze",
+    "tscp:M0/MTG_Massive",
+    "tscp:M0/Yggdrasil_Core",
+    "tscp:M0/Eve_Online_Economy",
+    "tscp:M0/Nintendo_Lateral_Thinking",
+    "tscp:M0/Venice_Hydraulic",
+    "tscp:M0/DAO_Governance"
+  ]
+}

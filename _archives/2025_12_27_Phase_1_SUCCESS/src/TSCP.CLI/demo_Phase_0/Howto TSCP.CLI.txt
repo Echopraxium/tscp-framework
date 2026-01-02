@@ -1,0 +1,22 @@
+ Howto use: TSCP.CLI
+ 
+A. To begin with 'TSCP.CLI', you can use the following commands:
+ A.1. 'load' command: this loads the framework model and the system example (M0 layer: 'GameStop short squeeze')
+ A.2. 'list' command: this gives the list of loaded objects (7 objects)
+ A.3. 'graph' command: this generates a '.dot' file (a 'GraphViz' format for describing a graph) that you can visualize 'edotor' (https://edotor.net) 
+ A.5. 'export' command: this generates a '.nt' ('RDF' file, 'N-Triples' format) with which you can test 'SPARQL' queries in 'AtomGraph Playground' () 
+ 
+B. Demo commands with the 'GameStop short squeeze':
+ B.1. The 'compare' Command:
+ Use this to measure the Isotopy (Similarity) and Phase Distance ($D_{\phi}$) between two specific entities.
+ 
+ B.1.a. Compare the Swarm (Internal Consistency):
+ > 'compare tscp:m0_gorilla_1 tscp:m0_gorilla_2'
+ >> expected result: $D_{\phi} \approx 0.50$ (The "Heterogeneous Swarm" signature).
+  
+ B.1.b. Compare Swarm vs. Hedge Fund (Systemic Collision):
+ 'compare tscp:m0_gorilla_1 tscp:m0_hedge_fund'
+ >> expected result: $D_{\phi} = 1.00$ (The "Critical Rupture" signature).
+ 
+ Compare Instance vs. Meta-Layer (Abstraction Gap):compare tscp:m0_gorilla_1 tscp:layer_m2Result expected: $D_{\phi} = 1.00$ (Confirms that the instance is not the filter itself).2. The analyze CommandUse this for a deeper "Collision Report" which includes the qualitative assessment (Divergence, Rupture, or Swarm Cohesion).Test the "Bifurcation":analyze tscp:m0_gorilla_1 tscp:m0_hedge_fundTest the "Swarm Pivot":analyze tscp:m0_gorilla_1 tscp:m0_gorilla_2
+ 

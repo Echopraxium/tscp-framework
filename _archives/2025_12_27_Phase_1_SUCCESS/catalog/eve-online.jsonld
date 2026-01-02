@@ -1,0 +1,12 @@
+{
+  "@context": "../Ontology/tscp-core.jsonld",
+  "@id": "tscp:M0/Eve_Online_Economy",
+  "@type": "tscp:M0/Instance",
+  "facets": {
+    "Market_Liquidity": 0.9,
+    "Destruction_Feedback": 1.0,
+    "Player_Sovereignty": 0.9
+  },
+  "tags": ["Sandbox", "NullSec", "PLEX"],
+  "comment": "Simulation d'un système socio-économique où la destruction est un moteur de valeur."
+}

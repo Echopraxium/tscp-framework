@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docs/README.md" />
+    <File Path="docs/ontology-layers.md" />
+    <File Path="docs/system-master.md" />
+    <File Path="smart-prompt-v2.jsonld" />
+    <File Path="Ontology/tscp-core.jsonld" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/TSCP.Core/TSCP.Core.fsproj" />
+    <Project Path="src/TSCP.CLI/TSCP.CLI.fsproj" />
+  </Folder>
+  <Folder Name="/catalog/">
+    <File Path="catalog/seeds-catalog.jsonld" />
+    <File Path="catalog/gamestop.jsonld" />
+    <File Path="catalog/yggdrasil.jsonld" />
+    <File Path="catalog/nintendo.jsonld" />
+    <File Path="catalog/eve-online.jsonld" />
+    <File Path="catalog/mtg-massive.jsonld" />
+  </Folder>
+</Solution>

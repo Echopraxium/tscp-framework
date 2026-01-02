@@ -1,0 +1,17 @@
+{
+  "@graph": [
+    {
+      "system_id": "tscp:m0_nintendo_ecosystem",
+      "description": "Système de préservation de PI et innovation matérielle",
+      "observations": [
+        { "invariant": "m3:Isotropy", "value": 0.88 },
+        { "invariant": "m3:AntifragilityScore", "value": 0.91 }
+      ],
+      "facets": {
+        "Industry": "Gaming",
+        "Model": "VerticalIntegration",
+        "Asset": "IP"
+      }
+    }
+  ]
+}

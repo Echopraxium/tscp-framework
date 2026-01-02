@@ -1,0 +1,72 @@
+{
+  "@context": {
+    "tscp": "https://tscp-framework.org/ontology/v1#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "Layer": "tscp:hasLayer",
+    "Facettes": "tscp:hasFacets",
+    "Relations": "tscp:hasRelations",
+    "Label": "rdfs:label"
+  },
+  "@type": "tscp:FrameworkModel",
+  "Version": "1.7.1",
+  "Objects": [
+    {
+      "@id": "tscp:layer_m3",
+      "Layer": "META",
+      "Label": "Layer M3: Ontological Invariants",
+      "Facettes": ["Invariant", "Unity", "Closure"],
+      "Relations": {}
+    },
+    {
+      "@id": "tscp:layer_m2",
+      "Layer": "META",
+      "Label": "Layer M2: Observation Filters",
+      "Facettes": ["Paradigm", "Filter", "Interpretation"],
+      "Relations": { "tscp:layer_m3": "DerivedFrom" }
+    },
+    {
+      "@id": "tscp:layer_m1",
+      "Layer": "META",
+      "Label": "Layer M1: Operational Structures",
+      "Facettes": ["Structure", "Process", "Rules"],
+      "Relations": { "tscp:layer_m2": "ImplementedIn" }
+    },
+    {
+      "@id": "tscp:m3_principe_systeme",
+      "Layer": "M3",
+      "Label": "Principe de Systeme",
+      "Facettes": ["Emergence", "Unite"],
+      "Relations": { "tscp:layer_m3": "Subordination" }
+    },
+    {
+      "@id": "tscp:m0_gorilla_1",
+      "Layer": "M0",
+      "Label": "Trader r/WSB Alpha",
+      "Facettes": ["HODL", "Resilience", "Meme-Culture"],
+      "Relations": { 
+        "tscp:layer_m2": "InstanceOf",
+        "tscp:m3_principe_systeme": "Subordination"
+      }
+    },
+    {
+      "@id": "tscp:m0_gorilla_2",
+      "Layer": "M0",
+      "Label": "Trader r/WSB Beta",
+      "Facettes": ["HODL", "YOLO", "Resilience"],
+      "Relations": { 
+        "tscp:layer_m2": "InstanceOf",
+        "tscp:m3_principe_systeme": "Subordination"
+      }
+    },
+    {
+      "@id": "tscp:m0_hedge_fund",
+      "Layer": "M0",
+      "Label": "Melvin Capital",
+      "Facettes": ["Short-Selling", "Alpha-Generation", "Risk-Management"],
+      "Relations": { 
+        "tscp:layer_m2": "InstanceOf",
+        "tscp:m3_principe_systeme": "Subordination"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "@context": {
+    "tscp": "http://tscp-framework.org/ontology#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "invariant": "tscp:hasInvariant",
+    "threshold": "tscp:validationThreshold"
+  },
+  "@id": "tscp:M3_Systemic_Continuum",
+  "@type": "tscp:Ontology",
+  "rdfs:label": "TSCP M3 Systemic Invariants Ontology",
+  "description": "Definition of the 37 invariants required for M3 systemic consistency.",
+  "@graph": [
+    {
+      "@id": "inv:01_09",
+      "rdfs:label": "Structural and Energy Invariants",
+      "tscp:items": [
+        "INV_01_Mass_Conservation",
+        "INV_02_Energy_Balance",
+        "INV_03_Information_Integrity",
+        "INV_04_Structural_Stability",
+        "INV_05_Functional_Completeness",
+        "INV_06_Boundary_Definition",
+        "INV_07_Entropy_Threshold",
+        "INV_08_Negentropy_Flow",
+        "INV_09_Feedback_Loop_Stability"
+      ]
+    },
+    {
+      "@id": "inv:10_20",
+      "rdfs:label": "Phase and Scale Invariants",
+      "tscp:items": [
+        "INV_10_Isotropic_Consistency",
+        "INV_11_Phase_Coherence",
+        "INV_12_Scale_Invariance",
+        "INV_13_Recursive_Closure",
+        "INV_14_Interface_Standardization",
+        "INV_15_State_Reachability",
+        "INV_16_Temporal_Causality",
+        "INV_17_Metabolic_Rate",
+        "INV_18_Homeostatic_Range",
+        "INV_19_Autopoietic_Capability",
+        "INV_20_Hierarchical_Coupling"
+      ]
+    },
+    {
+      "@id": "inv:21_30",
+      "rdfs:label": "Signal and Ontological Invariants",
+      "tscp:items": [
+        "INV_21_Signal_to_Noise_Ratio",
+        "INV_22_Redundancy_Optimization",
+        "INV_23_Antifragility_Response",
+        "INV_24_Phase_Transition_Point",
+        "INV_25_Fractal_Dimension",
+        "INV_26_Network_Topological_Invariant",
+        "INV_27_Error_Correction_Bound",
+        "INV_28_Semantic_Mapping_Accuracy",
+        "INV_29_Ontological_Commitment",
+        "INV_30_Axiomatic_Consistency"
+      ]
+    },
+    {
+      "@id": "inv:31_37",
+      "rdfs:label": "Emergence and Identity Invariants",
+      "tscp:items": [
+        "INV_31_Observation_Observer_Separation",
+        "INV_32_Metric_Calibration",
+        "INV_33_Continuum_Smoothness",
+        "INV_34_State_Space_Ergodicity",
+        "INV_35_Dynamic_Equilibrium",
+        "INV_36_Systemic_Identity",
+        "INV_37_Emergence_Quantification"
+      ]
+    }
+  ]
+}

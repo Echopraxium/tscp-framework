@@ -1,0 +1,37 @@
+Voici les deux requêtes SPARQL essentielles pour votre modèle TSCP-Framework. Elles sont conçues pour fonctionner avec les relations réelles identifiées lors de nos tests (InstanceOf et Subordination).
+
+1. La Requête de Traçabilité Verticale (M0 -> M2 -> M3)
+C'est la requête la plus importante pour votre article. Elle prouve que même si les acteurs sont en collision, ils sont reliés au même principe fondateur.
+
+	PREFIX tscp: <https://tscp-framework.org/ontology/v1#>
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+	SELECT ?nomActeur ?nomArchetype ?principeM3
+	WHERE {
+	  # 1. On identifie l'acteur (M0) et son lien vers l'archétype (M2)
+	  ?acteur rdfs:label ?nomActeur ;
+			  tscp:InstanceOf ?m2 .
+	  
+	  # 2. On récupère le label de l'archétype (M2)
+	  ?m2 rdfs:label ?nomArchetype .
+	  
+	  # 3. On remonte au principe fondamental (M3) via la subordination
+	  ?m2 tscp:Subordination ?m3 .
+	  ?m3 rdfs:label ?principeM3 .
+	}
+	ORDER BY ?nomActeur
+
+------------------------------------------------------------------
+2. La Requête de Diagnostic Global (Audit du Graphe)
+Utilisez celle-ci pour vérifier que tous vos objets (M0 à M3) sont correctement chargés et pour voir leurs facettes associées.
+
+	PREFIX tscp: <https://tscp-framework.org/ontology/v1#>
+	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+	SELECT ?label ?couche ?facettes
+	WHERE {
+	  ?sujet rdfs:label ?label ;
+			 tscp:hasLayer ?couche ;
+			 tscp:hasFacets ?facettes .
+	}
+	ORDER BY ?couche

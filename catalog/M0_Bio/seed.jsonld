@@ -1,0 +1,64 @@
+{
+  "@graph": [
+    {
+      "system_id": "tscp:m0_bio_mitochondrie",
+      "description": "Centrale énergétique cellulaire (Transduction Chimique -> ATP)",
+      "observations": [
+        { "invariant": "m3:Efficiency", "value": 0.94 },
+        { "invariant": "m3:Energy", "value": 0.98 },
+        { "invariant": "m3:Entropy", "value": 0.15 }
+      ],
+      "facets": {
+        "Type": "Organelle",
+        "Input": "Chemical",
+        "Output": "ATP",
+        "Mechanism": "Chemiosmosis"
+      }
+    },
+    {
+      "system_id": "tscp:m0_bio_chloroplaste",
+      "description": "Convertisseur photosynthétique (Transduction Lumière -> Chimique)",
+      "observations": [
+        { "invariant": "m3:Efficiency", "value": 0.35 },
+        { "invariant": "m3:Energy", "value": 0.90 },
+        { "invariant": "m3:Negentropy", "value": 0.85 }
+      ],
+      "facets": {
+        "Type": "Organelle",
+        "Input": "Light",
+        "Output": "Chemical",
+        "Mechanism": "Photosynthesis"
+      }
+    },
+    {
+      "system_id": "tscp:m0_bio_luciferase",
+      "description": "Système de bioluminescence (Transduction Chimique -> Lumière)",
+      "observations": [
+        { "invariant": "m3:Efficiency", "value": 0.88 },
+        { "invariant": "m3:Energy", "value": 0.70 },
+        { "invariant": "m3:Resonance", "value": 0.95 }
+      ],
+      "facets": {
+        "Type": "Enzyme",
+        "Input": "Chemical",
+        "Output": "Light",
+        "Mechanism": "Oxidation"
+      }
+    },
+    {
+      "system_id": "tscp:m0_bio_cytochrome_c",
+      "description": "Vecteur de transfert d'électrons",
+      "observations": [
+        { "invariant": "m3:Efficiency", "value": 0.96 },
+        { "invariant": "m3:Connectivity", "value": 0.99 },
+        { "invariant": "m3:Isotropy", "value": 0.85 }
+      ],
+      "facets": {
+        "Type": "Protein",
+        "Input": "Electrons",
+        "Output": "Electrons",
+        "Mechanism": "Redox"
+      }
+    }
+  ]
+}

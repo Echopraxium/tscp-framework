@@ -1,0 +1,5 @@
+QUESTION STRUCTURANTE : STRATIFICATION ABSOLUE
+---------------------------------------------
+Objectif : Mesurer la stabilité d'un système à hiérarchie rigide.
+- Question : Le maintien des 9 mondes isolés (Stratification=1.0) est-il la source de la Résilience (0.98) ou un facteur de risque d'effondrement systémique (Ragnarök) ?
+- Comparaison : Yggdrasil vs DAO (Décentralisation vs Centralisation axiale).

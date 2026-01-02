@@ -1,0 +1,8 @@
+# .gitignore pour TSCP-Framework
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+.tscp/backups/

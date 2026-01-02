@@ -1,0 +1,25 @@
+/
+├── TSCP.sln                 # Solution (format XML standard)
+├── src/
+│   ├── TSCP.Core/           # Domaine, Invariants M3/M1
+│   │   ├── Domain.fs
+│   │   └── TSCP.Core.fsproj
+│   └── TSCP.CLI/            # Moteur Tensoriel, SPARQL, Grow
+│       ├── Program.fs
+│       ├── TensorEngine.fs
+│       ├── Loader.fs
+│       └── TSCP.CLI.fsproj
+├── catalog/                 # Graines Séminales (Seeds) G=1
+│   ├── gamestop.jsonld
+│   ├── yggdrasil.jsonld
+│   ├── nintendo.jsonld
+│   ├── eve-online.jsonld
+│   └── mtg-massive.jsonld
+├── queries/                 # Requêtes SPARQL Structurantes
+│   ├── mtg-recursion.sparql
+│   └── market-shock.sparql
+├── docs/
+│   ├── ontology-layers.md   # Description M3-M0 & Orthogonalité
+│   ├── system-master.md     # Guide du Maître Systémique
+│   └── README.md            # Documentation principale
+└── smart-prompt-v2.md       # Pour la ré-instanciation

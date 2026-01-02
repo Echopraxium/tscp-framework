@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="src\Model.fs" />
+		<Compile Include="src\Persistence.fs" />
+		<Compile Include="src\Compute.fs" />
+		<Compile Include="src\Export.fs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="bin\Debug\net10.0\" />
+	</ItemGroup>
+
+</Project>
