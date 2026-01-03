@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "tscp": "http://schema.tscp.org/core#",
+    "mtg": "http://schema.tscp.org/mtg#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "label": "rdfs:label",
+    "system_id": "tscp:systemId",
+    "description": "tscp:description"
+  },
+  "system_id": "M0_MTG_SPROUTED",
+  "description": "Magic The Gathering - Sprouted Seed (Core Classes)",
+  "@graph": [
+    {
+      "@id": "mtg:Card",
+      "@type": "rdfs:Class",
+      "label": "Game Card",
+      "rdfs:comment": "The fundamental unit of the game."
+    },
+    {
+      "@id": "mtg:Mechanic",
+      "@type": "rdfs:Class",
+      "label": "Game Mechanic",
+      "rdfs:comment": "A rule-based keyword that defines card behavior."
+    },
+    {
+      "@id": "mtg:ManaSystem",
+      "@type": "tscp:PointOfInterest",
+      "label": "Mana System",
+      "rdfs:comment": "The resource management system governing spell casting."
+    }
+  ]
+}

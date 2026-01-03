@@ -11,12 +11,11 @@ open Avalonia.Controls.ApplicationLifetimes
 open System
 open System.IO
 open System.Diagnostics
-open TSCP.Core
-open TSCP.Session
+// On utilise maintenant officiellement TSCP.Core pour la session
+open TSCP.Core 
 
 /// <summary>
-/// Optimized TSCP IDE for Laptop: Compact Tab Fonts (50% reduction), 
-/// Horizontal Toolbar layout, and Corrected Dialog sizing.
+/// Optimized TSCP IDE for Laptop: Compact Tab Fonts, Horizontal Toolbar.
 /// </summary>
 type MainWindow(state: SessionState) as self =
     inherit Window()
@@ -24,7 +23,7 @@ type MainWindow(state: SessionState) as self =
     // UI Constants
     let beigeBg = Color.Parse("#FFFFF0") |> SolidColorBrush
     let lightGraySplitter = Color.Parse("#D3D3D3") |> SolidColorBrush
-    let tabFontSize = 6.0 // 50% smaller than standard
+    let tabFontSize = 6.0 
     let splitterWidth = 2.6
     
     let loadIcon (name: string) =
@@ -43,12 +42,13 @@ type MainWindow(state: SessionState) as self =
 
         let rootDock = new DockPanel()
 
-        // --- TOP SECTION: MENU + TOOLBAR (Horizontal & Full Width) ---
+        // --- TOP SECTION ---
         let topContainer = new StackPanel(Orientation = Orientation.Vertical)
         
         // Menu Bar
         let menuBar = new Menu(Background = Brushes.WhiteSmoke)
         let fileMenu = new MenuItem(Header = "_File")
+       
         let quitItem = new MenuItem(Header = "Quit")
         quitItem.Click.Add(fun _ -> self.Close())
         fileMenu.Items.Add(quitItem) |> ignore
@@ -57,21 +57,28 @@ type MainWindow(state: SessionState) as self =
         
         let helpMenu = new MenuItem(Header = "_Help")
         let aboutItem = new MenuItem(Header = "About..")
+        
         aboutItem.Click.Add(fun _ -> 
-            // Corrected Dialog Size: Much smaller
             let aboutWin = new Window(Title="About TSCP", Width=320.0, Height=180.0, 
                                       WindowStartupLocation=WindowStartupLocation.CenterOwner,
                                       Background=beigeBg, CanResize=false,
                                       SystemDecorations=SystemDecorations.BorderOnly)
             
             let contentStack = new StackPanel(Margin=Thickness(15.0), Spacing=8.0)
+            
             let titleLabel = new TextBlock(Text="TSCP (Transdisciplinary System Construction Principles)", 
                                            FontSize=10.0, FontWeight=FontWeight.Bold, TextWrapping=TextWrapping.Wrap)
+            
             let authorsLabel = new TextBlock(Text="Authors: Echopraxium with the support of Google Gemini Search", 
                                              FontSize=7.0, TextWrapping=TextWrapping.Wrap)
+            
             let linkBtn = new Button(Content="TSCP-Framework on GitHub", Foreground=Brushes.Blue, 
                                      Background=Brushes.Transparent, BorderThickness=Thickness(0.0), FontSize=7.0)
-            linkBtn.Click.Add(fun _ -> Process.Start(new ProcessStartInfo("https://github.com/echopraxium/TSCP-Framework", UseShellExecute=true)) |> ignore)
+            
+            linkBtn.Click.Add(fun _ -> 
+                Process.Start(new ProcessStartInfo("https://github.com/echopraxium/TSCP-Framework", UseShellExecute=true)) |> ignore
+            )
+            
             let okBtn = new Button(Content="OK", Width=50.0, HorizontalAlignment=HorizontalAlignment.Right)
             okBtn.Click.Add(fun _ -> aboutWin.Close())
 
@@ -79,19 +86,21 @@ type MainWindow(state: SessionState) as self =
             contentStack.Children.Add(authorsLabel) |> ignore
             contentStack.Children.Add(linkBtn) |> ignore
             contentStack.Children.Add(okBtn) |> ignore
+            
             aboutWin.Content <- contentStack
             aboutWin.ShowDialog(self) |> ignore
         )
-        helpMenu.Items.Add(aboutItem) |> ignore
         
+        helpMenu.Items.Add(aboutItem) |> ignore
         menuBar.Items.Add(fileMenu) |> ignore
         menuBar.Items.Add(editMenu) |> ignore
         menuBar.Items.Add(helpMenu) |> ignore
         
-        // Toolbar: Under Menu, Full Horizontal Width
+        // Toolbar
         let toolbar = new DockPanel(Background = Brushes.AliceBlue, Height = 32.0)
         let buttonStack = new StackPanel(Orientation = Orientation.Horizontal)
         let toolBtn (ico: string) = new Button(Content = loadIcon ico, Margin = Thickness(2.0, 0.0), Background = Brushes.Transparent)
+        
         buttonStack.Children.Add(toolBtn "file_new_24px_icn.png") |> ignore
         buttonStack.Children.Add(toolBtn "file_open_24px_icn.png") |> ignore
         buttonStack.Children.Add(toolBtn "save_24px_icn.png") |> ignore
@@ -109,7 +118,7 @@ type MainWindow(state: SessionState) as self =
         DockPanel.SetDock(topContainer, Dock.Top)
         rootDock.Children.Add(topContainer) |> ignore
 
-        // --- MAIN WORKSPACE GRID ---
+         // --- MAIN WORKSPACE GRID ---
         let mainGrid = new Grid()
         mainGrid.ColumnDefinitions.Add(new ColumnDefinition(Width = GridLength(180.0))) 
         mainGrid.ColumnDefinitions.Add(new ColumnDefinition(Width = GridLength(splitterWidth))) 
@@ -150,9 +159,13 @@ type MainWindow(state: SessionState) as self =
 
         let bottomTabs = new TabControl(FontSize=tabFontSize)
         let console = new ListBox(Background=Brushes.Black, Foreground=Brushes.White, FontFamily=FontFamily("Consolas"), FontSize=8.0)
+        
         state.History |> List.iter (fun e -> 
-            let t = match e with | Log m -> sprintf "[LOG] %s" m | ActiveConcept c -> sprintf "[CONCEPT] %s" c.Name
+            let t = match e with 
+                    | Log m -> sprintf "[LOG] %s" m 
+                    | ActiveConcept c -> sprintf "[CONCEPT] %s" c.Name
             console.Items.Add(t :> obj) |> ignore)
+            
         bottomTabs.Items.Add(new TabItem(Header="TSCP-CLI", Content=console)) |> ignore
         bottomTabs.Items.Add(new TabItem(Header="Statistics", Content=new TextBlock(Text="Stats", FontSize=8.0))) |> ignore
         Grid.SetRow(bottomTabs, 2)
@@ -176,10 +189,13 @@ type App() =
     override this.Initialize() = this.Styles.Add(FluentTheme())
     override this.OnFrameworkInitializationCompleted() =
         match this.ApplicationLifetime with
-        | :? IClassicDesktopStyleApplicationLifetime as d -> d.MainWindow <- MainWindow(SessionManager.loadSession())
+        | :? IClassicDesktopStyleApplicationLifetime as d -> 
+            // REFACTORING COMPLETE: Now using SessionManager from TSCP.Core
+            d.MainWindow <- MainWindow(SessionManager.createDefault())
         | _ -> ()
         base.OnFrameworkInitializationCompleted()
 
 module GuiMain =
     [<EntryPoint>]
     let main args = AppBuilder.Configure<App>().UsePlatformDetect().StartWithClassicDesktopLifetime(args)
+// module GuiMain

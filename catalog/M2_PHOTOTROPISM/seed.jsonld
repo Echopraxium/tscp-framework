@@ -1,0 +1,17 @@
+{
+  "Id": "M2_PHOTOTROPISM",
+  "Name": "Positive Phototropism",
+  "Description": "Biological movement towards a light source for survival.",
+  "Signature": {
+    "Structure": 0.4,
+    "Information": 0.8,
+    "Dynamics": 0.7,
+    "Teleonomy": 0.9
+  },
+  "Tags": [
+    "M2",
+    "Pattern",
+    "Biology",
+    "Tropism"
+  ]
+}

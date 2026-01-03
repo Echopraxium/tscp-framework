@@ -1,0 +1,16 @@
+{
+  "Id": "M2_HOMEOSTASIS",
+  "Name": "Homeostasis",
+  "Description": "Dynamic stability maintaining a setpoint.",
+  "Signature": {
+    "Structure": 0.5,
+    "Information": 0.8,
+    "Dynamics": 0.9,
+    "Teleonomy": 1
+  },
+  "Tags": [
+    "M2",
+    "Pattern",
+    "Cybernetic"
+  ]
+}

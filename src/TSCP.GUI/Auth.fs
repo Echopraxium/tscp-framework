@@ -5,7 +5,7 @@ open System.Net
 open System.Diagnostics
 open System.Threading.Tasks
 open Google.Apis.Auth.OAuth2
-open TSCP.Session
+open TSCP.Core
 
 module Auth =
     let clientId = "YOUR_CLIENT_ID.apps.googleusercontent.com"

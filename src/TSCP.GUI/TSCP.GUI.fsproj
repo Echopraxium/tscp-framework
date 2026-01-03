@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TSCP.Core\TSCP.Core.fsproj" />
-    <ProjectReference Include="..\TSCP.Session\TSCP.Session.fsproj" />
   </ItemGroup>
 
 </Project>

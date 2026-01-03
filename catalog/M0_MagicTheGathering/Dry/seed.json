@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "tscp": "http://schema.tscp.org/core#",
+    "mtg": "http://schema.tscp.org/mtg#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "system_id": "tscp:systemId",
+    "description": "tscp:description"
+  },
+  "system_id": "M0_MTG_DRY",
+  "description": "Magic The Gathering - Dry Seed (Minimal Context)",
+  "@graph": []
+}

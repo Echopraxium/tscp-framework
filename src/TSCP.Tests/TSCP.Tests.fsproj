@@ -1,28 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <IsPackable>false</IsPackable>
-    <GenerateProgramFile>true</GenerateProgramFile>
-  </PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework> <IsPackable>false</IsPackable>
+    <GenerateProgramFile>true</GenerateProgramFile> </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Infrastructure\ReflectionTests.fs" />
+    
+    <Compile Include="Domain\MetricTests.fs" />
+    
+    </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="xunit" Version="2.5.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TSCP.Core\TSCP.Core.fsproj" />
-    <ProjectReference Include="..\TSCP.Session\TSCP.Session.fsproj" />
-    <ProjectReference Include="..\TSCP.CLI\TSCP.CLI.fsproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Core/DomainTests.fs" />
-    <Compile Include="Session/StateTests.fs" />
-    <Compile Include="CLI/CommandTests.fs" />
-    <Compile Include="Infrastructure/ReflectionTests.fs" />
   </ItemGroup>
 
 </Project>

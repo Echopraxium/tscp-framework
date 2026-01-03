@@ -1,0 +1,16 @@
+{
+  "Id": "M2_HIERARCHY",
+  "Name": "Hierarchy",
+  "Description": "Vertical organization of components.",
+  "Signature": {
+    "Structure": 1,
+    "Information": 0.7,
+    "Dynamics": 0.1,
+    "Teleonomy": 0.3
+  },
+  "Tags": [
+    "M2",
+    "Pattern",
+    "Architecture"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "tscp": "http://schema.tscp.org/core#",
+    "mtg": "http://schema.tscp.org/mtg#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "label": "rdfs:label",
+    "content": "tscp:content",
+    "illustrates": { "@id": "tscp:illustrates", "@type": "@id" }
+  },
+  "system_id": "M0_MTG_FLOWERING",
+  "description": "Magic The Gathering - Flowering Seed (Instances and Narratives)",
+  "@graph": [
+    {
+      "@id": "mtg:Flying",
+      "@type": "mtg:Mechanic",
+      "label": "Flying",
+      "rdfs:comment": "A creature with flying cannot be blocked except by creatures with flying or reach."
+    },
+    {
+      "@id": "mtg:AncestralRecallStory",
+      "@type": "tscp:Anecdote",
+      "label": "The Power of Three",
+      "content": "Richard Garfield designed Ancestral Recall to show the raw power of drawing three cards for one mana, creating an early systemic imbalance.",
+      "illustrates": "mtg:ManaSystem"
+    },
+    {
+      "@id": "mtg:BlackLotus",
+      "@type": "mtg:Card",
+      "label": "Black Lotus",
+      "rdfs:comment": "The most iconic resource acceleration card in gaming history."
+    }
+  ]
+}

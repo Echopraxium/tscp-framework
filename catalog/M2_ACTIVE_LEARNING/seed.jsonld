@@ -1,0 +1,17 @@
+{
+  "Id": "M2_ACTIVE_LEARNING",
+  "Name": "Active Learning Loop",
+  "Description": "Cognitive strategy using Dynamics to acquire Information and satisfy Teleonomy (Clarity).",
+  "Signature": {
+    "Structure": 0.3,
+    "Information": 0.9,
+    "Dynamics": 0.8,
+    "Teleonomy": 0.9
+  },
+  "Tags": [
+    "M2",
+    "Pattern",
+    "Cognition",
+    "Negentropy"
+  ]
+}
