@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSCP Case Study: GameStop</title>
+    <title>TSCP Case Study: GameStop "Short Squeeze" episode</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -15,7 +15,7 @@
             --text-light: #ecf0f1;
         }
         
-        /* Marges de page réduites */
+        /* Global Layout */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; padding: 5px; color: #333; display: flex; justify-content: center; min-height: 100vh; }
         
         .main-wrapper { width: 100%; max-width: 1000px; display: flex; flex-direction: column; }
@@ -33,9 +33,9 @@
             align-items: center;
         }
         
-        h1 { margin: 0; color: var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 5px; }
+        h1 { margin: 0; color: var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 6px; }
         
-        /* Nouveau style pour le lien du titre */
+        /* Title Link Style */
         .title-link {
             text-decoration: none;
             color: var(--primary);
@@ -52,10 +52,10 @@
         .context-link { font-size: 0.75em; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 2px 8px; border-radius: 12px; transition: all 0.2s; white-space: nowrap; }
         .context-link:hover { background: var(--accent); color: white; }
 
-        /* Navigation Bar Ultra-Compacte */
+        /* Navigation Bar Ultra-Compact */
         .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; background: white; padding: 4px 15px; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); height: 40px; }
         
-        /* Boutons Nav : Fond blanc + Bordure */
+        /* Nav Buttons */
         .nav-btn { 
             background: white; 
             border: 1px solid #ccc; 
@@ -78,7 +78,7 @@
         
         #step-indicator { font-size: 1em; font-weight: bold; color: var(--primary); }
 
-        /* Main Content Card - Hauteur Optimisée Laptop (480px) */
+        /* Main Content Card (Laptop Optimized: 480px) */
         .content-card { 
             background: var(--panel-bg); 
             border-radius: 8px; 
@@ -159,8 +159,8 @@
 <div class="main-wrapper">
     <header>
         <h1>
-            <a href="https://github.com/Echopraxium/tscp-framework" target="_blank" class="title-link" title="Voir le Framework sur GitHub">TSCP</a> 
-            Case Study: GameStop
+            <a href="https://github.com/Echopraxium/tscp-framework" target="_blank" class="title-link" title="Visit TSCP Framework on GitHub">TSCP</a> 
+            Case Study: GameStop "Short Squeeze" episode
         </h1>
         <div class="header-meta">
             <span class="subtitle">M2 Model Validation (v3.16)</span>
@@ -169,9 +169,9 @@
     </header>
 
     <div class="nav-bar">
-        <button id="btn-prev" class="nav-btn" onclick="app.prevStep()" title="Précédent"><img src="img/left_arrow.png" alt="<"></button>
-        <span id="step-indicator">Chargement...</span>
-        <button id="btn-next" class="nav-btn" onclick="app.nextStep()" title="Suivant"><img src="img/right_arrow.png" alt=">"></button>
+        <button id="btn-prev" class="nav-btn" onclick="app.prevStep()" title="Previous Step"><img src="img/left_arrow.png" alt="<"></button>
+        <span id="step-indicator">Loading...</span>
+        <button id="btn-next" class="nav-btn" onclick="app.nextStep()" title="Next Step"><img src="img/right_arrow.png" alt=">"></button>
     </div>
 
     <div class="content-card">
@@ -180,8 +180,8 @@
         <div class="viewport">
             
             <div id="mode-viz" class="view-image-container">
-                <img id="viz-img" class="main-image" src="" alt="Image non trouvée. Vérifiez le dossier /img">
-                <div class="image-caption">Visualisation GraphViz (.png)</div>
+                <img id="viz-img" class="main-image" src="" alt="Image not found. Check the /img folder">
+                <div class="image-caption">GraphViz Visualization (.png)</div>
             </div>
 
             <div id="mode-code" class="view-code-container">
@@ -191,8 +191,9 @@
         </div>
 
         <div class="card-footer">
-            <span class="footer-label">🔧 Outils d'analyse :</span>
+            <span class="footer-label">🔧 Tools:</span>
             <div class="footer-links">
+                <a href="https://github.com/Echopraxium/tscp-framework" target="_blank" class="tool-link">📦 GitHub Project</a>
                 <a href="https://atomgraph.github.io/SPARQL-Playground/" target="_blank" class="tool-link">⚡ AtomGraph (SPARQL)</a>
                 <a href="https://edotor.net/" target="_blank" class="tool-link">⚡ Edotor.net (DOT)</a>
             </div>
@@ -201,14 +202,14 @@
 </div>
 
 <script>
-// --- DONNÉES ---
+// --- DATA (English Labels + Content) ---
 const DATA = [
     {
         id: "static",
-        title: "0. Static View (Structure M0)",
+        title: "0. Static View (M0 Structure)",
         image: "img/StaticView.png",
         views: [
-            { id: "viz", label: "🖼️ Visualisation", type: "image" },
+            { id: "viz", label: "🖼️ Visualization", type: "image" },
             { id: "jsonld", label: "📄 JSON-LD", type: "code", content: `{
   "@context": {
     "tscp": "https://github.com/Echopraxium/tscp-framework/ontology/",
@@ -279,10 +280,10 @@ WHERE {
     },
     {
         id: "step1",
-        title: "1. Dysfunction (Le Déséquilibre)",
+        title: "1. Dysfunction (Systemic Imbalance)",
         image: "img/step1_dysfunction.png",
         views: [
-            { id: "viz", label: "🖼️ Visualisation", type: "image" },
+            { id: "viz", label: "🖼️ Visualization", type: "image" },
             { id: "sparql", label: "📄 SPARQL", type: "code", content: `PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
 PREFIX tscp: <https://github.com/Echopraxium/tscp-framework/ontology/>
 PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
@@ -318,10 +319,10 @@ WHERE {
     },
     {
         id: "step2",
-        title: "2. Synergy (L'Alignement)",
+        title: "2. Synergy (Alignment)",
         image: "img/step2_synergy.png",
         views: [
-            { id: "viz", label: "🖼️ Visualisation", type: "image" },
+            { id: "viz", label: "🖼️ Visualization", type: "image" },
             { id: "sparql", label: "📄 SPARQL", type: "code", content: `PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
 PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
 
@@ -356,10 +357,10 @@ WHERE {
     },
     {
         id: "step3",
-        title: "3. Feedback Loop (Le Squeeze)",
+        title: "3. Feedback Loop (The Squeeze)",
         image: "img/step3_feedback.png",
         views: [
-            { id: "viz", label: "🖼️ Visualisation", type: "image" },
+            { id: "viz", label: "🖼️ Visualization", type: "image" },
             { id: "sparql", label: "📄 SPARQL", type: "code", content: `PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
 PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
 
