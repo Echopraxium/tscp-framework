@@ -1,0 +1,14 @@
+digraph Step1_Dysfunction {
+  rankdir=LR;
+  node [fontname="Arial", shape=box, style="filled,rounded"];
+  edge [fontname="Arial", fontsize=10];
+
+  // Nodes
+  "Melvin Capital" [fillcolor="#E0E0E0", label="Melvin Capital\nSig: A = O x E"];
+  "Short Interest > 140%" [shape=note, fillcolor="#FFEEEE", label="Short > 140%\nSig: ||C|| > 1.4 R"];
+  "Liquidity Crisis Risk" [shape=ellipse, fillcolor="#FF0000", fontcolor=white, label="Liquidity Crisis\nSig: e > theta"];
+
+  // Edges
+  "Melvin Capital" -> "Short Interest > 140%" [label="m2:induces"];
+  "Short Interest > 140%" -> "Liquidity Crisis Risk" [label="m2:Dysfunction", style=dashed, color=red];
+}

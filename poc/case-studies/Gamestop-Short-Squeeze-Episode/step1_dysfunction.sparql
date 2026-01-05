@@ -1,0 +1,23 @@
+PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
+PREFIX tscp: <https://github.com/Echopraxium/tscp-framework/ontology/>
+PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+  inst:MelvinCapital m2:induces ?constraint .
+  inst:MelvinCapital tscp:tensorSignature ?aSig .
+  ?constraint m2:Dysfunction ?risk .
+  ?constraint tscp:tensorSignature ?cSig .
+  ?constraint rdfs:label ?cLabel .
+  ?risk tscp:tensorSignature ?rSig .
+  ?risk rdfs:label ?rLabel .
+}
+WHERE {
+  inst:MelvinCapital m2:induces ?constraint .
+  inst:MelvinCapital tscp:tensorSignature ?aSig .
+  ?constraint m2:Dysfunction ?risk .
+  ?constraint tscp:tensorSignature ?cSig .
+  ?constraint rdfs:label ?cLabel .
+  ?risk tscp:tensorSignature ?rSig .
+  ?risk rdfs:label ?rLabel .
+}

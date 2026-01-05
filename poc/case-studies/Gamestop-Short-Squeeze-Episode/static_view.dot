@@ -1,0 +1,25 @@
+digraph StaticView {
+  rankdir=TB;
+  fontname="Arial";
+  node [fontname="Arial", shape=box, style="filled,rounded"];
+  edge [fontname="Arial", fontsize=10];
+
+  // 1. Définition du Cluster (La boite)
+  subgraph cluster_substrate {
+    label = "Substrate: NYSE Market\nSig: eta (Liquidité)";
+    style = dashed;
+    color = "#7f8c8d";
+    fontcolor = "#7f8c8d";
+    bgcolor = "#fbfbfb";
+
+    // 2. Déclarer les noeuds IMPÉRATIVEMENT ici
+    Melvin [label="Melvin Capital\nRole: Short Seller\nSig: A = O x E", fillcolor="#E0E0E0"];
+    Swarm  [label="Reddit Swarm\nRole: Retail\nSig: Sum(i x e)", fillcolor="#CCFFCC"];
+  }
+
+  // 3. Noeuds externes
+  Constraint [shape=note, fillcolor="#FFEEEE", label="Short Interest > 140%\nSig: ||C|| > 1.4 R"];
+
+  // 4. Relations (Utiliser les IDs techniques)
+  Melvin -> Constraint [label="m2:induces"];
+}

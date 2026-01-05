@@ -1,0 +1,18 @@
+digraph Step3_Squeeze {
+  rankdir=TD;
+  fontname="Arial";
+  node [fontname="Arial", shape=box, style="filled,rounded"];
+  edge [fontname="Arial", fontsize=10];
+
+  // 1. Déclaration des Noeuds
+  Buying [label="Mass Buying\nSig: T = Int(F dt)", fillcolor="#99FF99"];
+  Surge [label="Price Surge\nSig: dv/dt -> inf", shape=star, fillcolor="#FFFF00"];
+  Feedback [label="Feedback Loop\nSig: beta > 0", shape=circle, width=1.3, fixedsize=true, fillcolor="#3366FF", fontcolor=white];
+  Repair [label="Repair (Forced)\nSig: T = H(e-theta).C", style="filled,bold", fillcolor="#FF9999"];
+
+  // 2. Relations
+  Buying -> Surge [label="m2:induces"];
+  Surge -> Feedback [label="m2:requires"];
+  Feedback -> Repair [label="m2:induces (Repair)"];
+  Repair -> Buying [label="reinforces", style=dashed, color=red];
+}

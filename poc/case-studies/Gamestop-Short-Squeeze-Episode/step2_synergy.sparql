@@ -1,0 +1,19 @@
+PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
+PREFIX tscp: <https://github.com/Echopraxium/tscp-framework/ontology/>
+PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
+
+CONSTRUCT {
+  inst:RoaringKitty m2:induces ?msg .
+  inst:RoaringKitty tscp:tensorSignature ?oSig .
+  ?msg tscp:tensorSignature ?mSig .
+  inst:RedditSwarm m2:consumes ?msg .
+  inst:RedditSwarm tscp:tensorSignature ?sSig .
+  inst:RedditSwarm m2:Mode "Synergy" .
+}
+WHERE {
+  inst:RoaringKitty m2:induces ?msg .
+  inst:RoaringKitty tscp:tensorSignature ?oSig .
+  ?msg tscp:tensorSignature ?mSig .
+  inst:RedditSwarm m2:consumes ?msg .
+  inst:RedditSwarm tscp:tensorSignature ?sSig .
+}

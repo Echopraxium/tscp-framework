@@ -1,0 +1,15 @@
+digraph Step1_Dysfunction {
+  rankdir=LR;
+  fontname="Arial";
+  node [fontname="Arial", shape=box, style="filled,rounded"];
+  edge [fontname="Arial", fontsize=10];
+
+  // 1. Déclaration des Noeuds
+  Melvin [label="Melvin Capital\nSig: A = O x E", fillcolor="#E0E0E0"];
+  Constraint [label="Short Interest > 140%\nSig: ||C|| > 1.4 R", shape=note, fillcolor="#FFEEEE"];
+  Risk [label="Liquidity Crisis\nSig: e > theta", shape=ellipse, fillcolor="#FF0000", fontcolor=white];
+
+  // 2. Relations
+  Melvin -> Constraint [label="m2:induces"];
+  Constraint -> Risk [label="m2:Dysfunction", style=dashed, color=red];
+}

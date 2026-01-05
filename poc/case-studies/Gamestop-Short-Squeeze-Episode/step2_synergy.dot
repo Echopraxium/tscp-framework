@@ -1,0 +1,16 @@
+digraph Step2_Synergy {
+  rankdir=LR;
+  fontname="Arial";
+  node [fontname="Arial", shape=box, style="filled,rounded"];
+  edge [fontname="Arial", fontsize=10];
+
+  // 1. Déclaration des Noeuds
+  Kitty [label="Roaring Kitty\nSig: O: V -> I", shape=diamond, fillcolor="#CCF2FF"];
+  Thesis [label="Signal: Thesis\nSig: <Info, Noise>", shape=folder, fillcolor="#FFFFCC"];
+  Swarm [label="Reddit Swarm\nSig: Sum(i x e)", shape=doublecircle, fillcolor="#CCFFCC"];
+
+  // 2. Relations
+  Kitty -> Thesis [label="m2:induces"];
+  Swarm -> Thesis [label="m2:consumes"];
+  Swarm -> Swarm [label="Mode: Synergy", color="#00aa00"];
+}

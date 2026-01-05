@@ -1,0 +1,26 @@
+PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
+PREFIX tscp: <https://github.com/Echopraxium/tscp-framework/ontology/>
+PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+  inst:GameStopEvent_System m2:Component ?agent .
+  ?agent m2:Role ?role .
+  ?agent tscp:tensorSignature ?aSig .
+  inst:MarketSubstrate m2:supports ?agent .
+  inst:MarketSubstrate tscp:tensorSignature ?sSig .
+  ?agent m2:induces ?constraint .
+  ?constraint rdfs:label ?cLabel .
+  ?constraint tscp:tensorSignature ?cSig .
+}
+WHERE {
+  inst:MarketSubstrate m2:supports ?agent .
+  inst:MarketSubstrate tscp:tensorSignature ?sSig .
+  ?agent m2:Role ?role .
+  ?agent tscp:tensorSignature ?aSig .
+  OPTIONAL { 
+    ?agent m2:induces ?constraint . 
+    ?constraint rdfs:label ?cLabel .
+    ?constraint tscp:tensorSignature ?cSig .
+  }
+}

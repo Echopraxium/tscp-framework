@@ -1,0 +1,96 @@
+{
+  "@context": {
+    "tscp": "https://github.com/Echopraxium/tscp-framework/ontology/",
+    "m2": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld",
+    "inst": "https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sig": "tscp:tensorSignature"
+  },
+  "@id": "inst:GameStopEvent_System",
+  "@type": "m2:System",
+  "rdfs:label": "GameStop Short Squeeze System (Jan 2021)",
+  "sig": "\\mathbf{Sys}_{GME} = \\mathcal{S} \\otimes \\mathcal{A}_{dom} \\otimes \\mathcal{A}_{swarm}",
+  "@graph": [
+    {
+      "@id": "inst:MarketSubstrate",
+      "@type": "m2:Substrate",
+      "rdfs:label": "NYSE Market",
+      "sig": "\\eta_{market} \\in \\mathbb{R}^{n \\times n}",
+      "m2:supports": ["inst:MelvinCapital", "inst:RedditSwarm"]
+    },
+    {
+      "@id": "inst:MelvinCapital",
+      "@type": "m2:Agent",
+      "rdfs:label": "Melvin Capital",
+      "sig": "\\mathcal{A}_{dom} = \\mathbf{O}_{short} \\otimes E_{cap}",
+      "m2:Role": "Short Seller",
+      "m2:induces": "inst:NakedShortConstraint"
+    },
+    {
+      "@id": "inst:NakedShortConstraint",
+      "@type": "m2:Constraint",
+      "rdfs:label": "Short Interest > 140%",
+      "sig": "\\| \\mathbf{C}_{short} \\| > 1.4 \\cdot R_{total}",
+      "m2:Dysfunction": "inst:SystemicImbalance"
+    },
+    {
+      "@id": "inst:SystemicImbalance",
+      "@type": "m2:Dysfunction",
+      "rdfs:label": "Liquidity Crisis Risk",
+      "sig": "\\epsilon_{sys} > \\theta_{margin}",
+      "m2:Threshold": "Margin Call Level"
+    },
+    {
+      "@id": "inst:RoaringKitty",
+      "@type": "m2:Observer",
+      "rdfs:label": "Roaring Kitty",
+      "sig": "\\mathcal{O}_{rk} : \\mathcal{V} \\to \\mathcal{I}",
+      "m2:Diagnostic": "inst:SystemicImbalance",
+      "m2:induces": "inst:DeepValueThesis"
+    },
+    {
+      "@id": "inst:DeepValueThesis",
+      "@type": "m2:Message",
+      "rdfs:label": "The Bull Thesis",
+      "sig": "\\vec{s}_{bull} = \\langle \\text{Info}_{high}, \\text{Noise}_{low} \\rangle"
+    },
+    {
+      "@id": "inst:RedditSwarm",
+      "@type": "m2:Agent",
+      "rdfs:label": "r/WallStreetBets",
+      "sig": "\\mathcal{A}_{swarm} = \\sum_{k} (\\vec{i}_k \\otimes \\vec{e}_k)",
+      "m2:Mode": "Synergy",
+      "m2:consumes": "inst:DeepValueThesis",
+      "m2:orchestrates": "inst:MassBuyingProcess"
+    },
+    {
+      "@id": "inst:MassBuyingProcess",
+      "@type": "m2:Transformation",
+      "rdfs:label": "Mass Buying",
+      "sig": "\\mathbf{T}_{buy} = \\int \\vec{F}_{buy} dt",
+      "m2:induces": "inst:PriceExplosion"
+    },
+    {
+      "@id": "inst:PriceExplosion",
+      "@type": "m2:Event",
+      "rdfs:label": "Price Surge (Gamma)",
+      "sig": "\\frac{d\\vec{v}}{dt} \\to \\infty"
+    },
+    {
+      "@id": "inst:SqueezeLoop",
+      "@type": "m2:Feedback",
+      "rdfs:label": "Positive Feedback",
+      "sig": "\\beta > 0 \\implies v_{t+1} = v_t + \\beta \\Delta v",
+      "m2:requires": ["inst:PriceExplosion", "inst:NakedShortConstraint"],
+      "m2:induces": "inst:ForcedLiquidation"
+    },
+    {
+      "@id": "inst:ForcedLiquidation",
+      "@type": "m2:Repair",
+      "rdfs:label": "Forced Buy-Back",
+      "sig": "\\mathbf{T}_{rep} = H(\\epsilon - \\theta) \\cdot \\mathbf{C}_{short}",
+      "m2:consumes": "inst:MelvinCapital"
+    }
+  ]
+}

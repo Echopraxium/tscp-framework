@@ -1,0 +1,22 @@
+PREFIX m2: <https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#>
+PREFIX tscp: <https://github.com/Echopraxium/tscp-framework/ontology/>
+PREFIX inst: <https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#>
+
+CONSTRUCT {
+  inst:MassBuyingProcess m2:induces ?event .
+  ?event tscp:tensorSignature ?eSig .
+  inst:SqueezeLoop m2:requires ?event .
+  inst:SqueezeLoop tscp:tensorSignature ?lSig .
+  inst:SqueezeLoop m2:induces ?repair .
+  ?repair tscp:tensorSignature ?rSig .
+  ?repair m2:consumes inst:MelvinCapital .
+}
+WHERE {
+  inst:MassBuyingProcess m2:induces ?event .
+  ?event tscp:tensorSignature ?eSig .
+  inst:SqueezeLoop m2:requires ?event .
+  inst:SqueezeLoop tscp:tensorSignature ?lSig .
+  inst:SqueezeLoop m2:induces ?repair .
+  ?repair tscp:tensorSignature ?rSig .
+  ?repair m2:consumes inst:MelvinCapital .
+}
