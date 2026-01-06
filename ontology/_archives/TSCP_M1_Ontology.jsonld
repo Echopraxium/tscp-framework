@@ -1,0 +1,102 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "tscp": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M3_Ontology.jsonld#",
+    "m2": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#",
+    "m1": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M1_Ontology.jsonld#",
+    
+    /* AJOUT : L'alias pour l'alignement strict avec M2 */
+    "projection": "tscp:projectionType"
+  },
+  "@id": "m1:PrototypingSpace",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M1 Domain Model: Systemic Finance",
+  "rdfs:comment": "Prototyping space for the Finance domain. Defines specific connectors extending the M3 Interaction Vector.",
+  "owl:imports": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld",
+  
+  "@graph": [
+    
+    /* --- 1. CORE CONCEPT: THE CONNECTOR --- */
+    {
+      "@id": "m1:Connector",
+      "@type": "owl:Class",
+      "rdfs:label": "Systemic Connector (Prototype)",
+      "rdfs:subClassOf": { "@id": "tscp:InteractionVector" }
+    },
+
+    /* --- 2. SPACE CLASSIFICATION (Using 'projection' attribute) --- */
+
+    /* Analytic Space */
+    {
+      "@id": "m1:AnalyticConnector",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "m1:Connector",
+      "rdfs:label": "Analytic Connector (Signal)",
+      "rdfs:seeAlso": { "@id": "tscp:M3_Information" }, 
+      
+      "projection": "Analytic", /* SYNTAXE ALIGNÉE M2 */
+      
+      "rdfs:comment": "Transports pure Information. Aligns with M3 |I⟩."
+    },
+
+    /* Constructive Space */
+    {
+      "@id": "m1:ConstructiveConnector",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "m1:Connector",
+      "rdfs:label": "Constructive Connector (Force)",
+      "rdfs:seeAlso": { "@id": "tscp:M3_Dynamics" },
+      
+      "projection": "Constructive", /* SYNTAXE ALIGNÉE M2 */
+      
+      "rdfs:comment": "Transports Force or Energy. Aligns with M3 |D⟩."
+    },
+
+    /* --- 3. DOMAIN VERBS --- */
+    
+    /* Constructive Verbs */
+    {
+      "@id": "m1:supports",
+      "@type": "owl:ObjectProperty",
+      "rdfs:label": "supports",
+      "rdfs:domain": { "@id": "m2:Substrate" },
+      "rdfs:range": { "@id": "m2:Agent" },
+      "m1:connectorType": { "@id": "m1:ConstructiveConnector" }
+    },
+    {
+      "@id": "m1:induces",
+      "@type": "owl:ObjectProperty",
+      "rdfs:label": "induces",
+      "rdfs:comment": "Active creation of a Constraint or Force.",
+      "m1:connectorType": { "@id": "m1:ConstructiveConnector" }
+    },
+    {
+      "@id": "m1:orchestrates",
+      "@type": "owl:ObjectProperty",
+      "rdfs:label": "orchestrates",
+      "m1:connectorType": { "@id": "m1:ConstructiveConnector" }
+    },
+    {
+      "@id": "m1:requires",
+      "@type": "owl:ObjectProperty",
+      "rdfs:label": "requires",
+      "m1:connectorType": { "@id": "m1:ConstructiveConnector" }
+    },
+
+    /* Analytic Verbs */
+    {
+      "@id": "m1:diagnoses",
+      "@type": "owl:ObjectProperty",
+      "rdfs:label": "diagnoses",
+      "m1:connectorType": { "@id": "m1:AnalyticConnector" }
+    },
+    {
+      "@id": "m1:consumes",
+      "@type": "owl:ObjectProperty",
+      "rdfs:label": "consumes (Information)",
+      "m1:connectorType": { "@id": "m1:AnalyticConnector" }
+    }
+  ]
+}

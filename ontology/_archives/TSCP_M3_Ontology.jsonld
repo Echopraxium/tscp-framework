@@ -1,0 +1,81 @@
+{
+  "@context": {
+    "tscp": "http://tscp-framework.org/ontology#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "vector": "tscp:hasVectorSignature",
+    "analytic": "tscp:analyticProjection",
+    "constructive": "tscp:constructiveProjection"
+  },
+  "@id": "tscp:M3_Vector_Space",
+  "@type": "tscp:Ontology",
+  "rdfs:label": "TSCP M3 Core 4 - The 4 Fundamental Invariants & Spaces",
+  "description": "Defines the orthogonal basis vectors and the two fundamental Spaces of interaction.",
+  "versionInfo": "2.1.0-SPACES",
+  "@graph": [
+    
+    /* --- 1. THE 4 FUNDAMENTAL INVARIANTS (The Bricks) --- */
+    {
+      "@id": "tscp:M3_Structure",
+      "@type": "tscp:FundamentalInvariant",
+      "tscp:symbol": "|S⟩",
+      "rdfs:label": "STRUCTURE",
+      "description": "The spatial arrangement, connectivity, and boundaries.",
+      "tscp:analyticProjection": "Conceptual Boundary / Identity",
+      "tscp:constructiveProjection": "Membrane / Interface / Topology"
+    },
+    {
+      "@id": "tscp:M3_Information",
+      "@type": "tscp:FundamentalInvariant",
+      "tscp:symbol": "|I⟩",
+      "rdfs:label": "INFORMATION",
+      "description": "Negentropy, semantics, and the code/DNA that orders the system.",
+      "tscp:analyticProjection": "Semantics / Ontology",
+      "tscp:constructiveProjection": "Code / DNA / Memorized State"
+    },
+    {
+      "@id": "tscp:M3_Dynamics",
+      "@type": "tscp:FundamentalInvariant",
+      "tscp:symbol": "|D⟩",
+      "rdfs:label": "DYNAMICS",
+      "description": "The capacity for change, flow, energy, and transformation.",
+      "tscp:analyticProjection": "Anticipated Transformation (Evolution Law)",
+      "tscp:constructiveProjection": "Flow / Energy / Observed Transformation"
+    },
+    {
+      "@id": "tscp:M3_Teleonomy",
+      "@type": "tscp:FundamentalInvariant",
+      "tscp:symbol": "|T⟩",
+      "rdfs:label": "TELEONOMY",
+      "description": "Goal-oriented behavior, attractors, and adaptation mechanisms.",
+      "tscp:analyticProjection": "Attractor / Stable State / Goal",
+      "tscp:constructiveProjection": "Tropism / Adaptation Mechanism"
+    },
+
+    /* --- 2. THE SYSTEMIC SPACES (The Containers) --- */
+    {
+      "@id": "tscp:AnalyticSpace",
+      "@type": "tscp:SystemicSpace",
+      "rdfs:label": "Analytic Space (Observer Space)",
+      "description": "The space of Observation, Measurement, and Meaning. It does not alter the physical state of the system.",
+      "tscp:governedBy": ["tscp:M3_Information", "tscp:M3_Structure"]
+    },
+    {
+      "@id": "tscp:ConstructiveSpace",
+      "@type": "tscp:SystemicSpace",
+      "rdfs:label": "Constructive Space (Action Space)",
+      "description": "The space of Action, Energy, and Physics. It modifies the system state.",
+      "tscp:governedBy": ["tscp:M3_Dynamics", "tscp:M3_Teleonomy"]
+    },
+
+    /* --- 3. THE CONNECTOR ARCHETYPE (The M3 Link) --- */
+    {
+      "@id": "tscp:InteractionVector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Interaction Vector (Connector Archetype)",
+      "description": "Abstract definition of a link. In M1/M2, this becomes 'Connector'. In M0, this becomes specific verbs like 'induces' or 'supports'.",
+      "tscp:hasAnalyticMode": "Observation (Read)",
+      "tscp:hasConstructiveMode": "Action (Write/Force)"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "m2": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M2_Ontology_Core.jsonld#",
+    "m1": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M1_Ontology_Core.jsonld#",
+    /* CORRECTION DU CHEMIN : /extensions/ au lieu de /ext/ */
+    "fin": "http://tscp-framework.org/ontology/extensions/finance#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "@id": "fin:Ontology_Ext_FinancialMarket",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M1 Extension: Financial Market",
+  "versionInfo": "1.3.0-EXTENSIONS-PATH",
+  "owl:imports": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M1_Ontology_Core.jsonld",
+  
+  "@graph": [
+    /* ACTORS */
+    { "@id": "fin:HedgeFund", "rdfs:subClassOf": "m2:Agent", "rdfs:label": "Institutional Fund" },
+    { "@id": "fin:MarketMaker", "rdfs:subClassOf": "m2:Agent", "rdfs:label": "Market Maker" },
+    { "@id": "fin:Regulator", "rdfs:subClassOf": "m2:Agent", "rdfs:label": "Regulatory Body (SEC)" },
+    { "@id": "fin:Hodler", "rdfs:subClassOf": "m2:Agent", "rdfs:label": "Retail Holder (Stubborn)", "rdfs:comment": "Diamond Hands agent." },
+
+    /* MECHANICS */
+    { "@id": "fin:ShortSqueeze", "rdfs:subClassOf": "m2:Synergy_Pos", "rdfs:label": "Short Squeeze Loop" },
+    { "@id": "fin:Liquidity", "rdfs:subClassOf": "m2:Resource", "rdfs:label": "Market Liquidity" },
+    { "@id": "fin:Volatility", "rdfs:subClassOf": "m2:Gradient", "rdfs:label": "Price Volatility" },
+
+    /* REPRESENTATION */
+    { "@id": "fin:Price", "rdfs:subClassOf": "m2:Signal", "rdfs:label": "Asset Price" },
+    { "@id": "fin:MarketNarrative", "rdfs:subClassOf": "m2:Representation", "rdfs:label": "Market Narrative / Sentiment" },
+    { "@id": "fin:RegulationPolicy", "rdfs:subClassOf": "m2:Regulation", "rdfs:label": "Financial Policy" }
+  ]
+}

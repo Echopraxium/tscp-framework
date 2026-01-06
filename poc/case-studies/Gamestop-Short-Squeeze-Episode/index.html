@@ -202,7 +202,7 @@
 </div>
 
 <script>
-// --- DATA (English Labels + Content) ---
+// --- DATA (English Labels + Content + JSONLD FIX) ---
 const DATA = [
     {
         id: "static",
@@ -210,12 +210,21 @@ const DATA = [
         image: "img/StaticView.png",
         views: [
             { id: "viz", label: "🖼️ Visualization", type: "image" },
-            { id: "jsonld", label: "📄 JSON-LD", type: "code", content: `{
+            { id: "jsonld", label: "📄 JSON-LD (Corrected)", type: "code", content: `{
   "@context": {
     "tscp": "https://github.com/Echopraxium/tscp-framework/ontology/",
-    "m2": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld",
+    "m2": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M2_Ontology.jsonld#",
     "inst": "https://github.com/Echopraxium/tscp-framework/poc/case-studies/Gamestop-Short-Squeeze-Episode#",
-    "sig": "tscp:tensorSignature"
+    "sig": "tscp:tensorSignature",
+    
+    "m2:supports": { "@type": "@id" },
+    "m2:induces": { "@type": "@id" },
+    "m2:consumes": { "@type": "@id" },
+    "m2:requires": { "@type": "@id" },
+    "m2:orchestrates": { "@type": "@id" },
+    "m2:Diagnostic": { "@type": "@id" },
+    "m2:Dysfunction": { "@type": "@id" },
+    "m2:Component": { "@type": "@id" }
   },
   "@id": "inst:GameStopEvent_System",
   "@type": "m2:System",

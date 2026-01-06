@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "m1": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M1_Ontology_Core.jsonld#",
+    /* CORRECTION DU CHEMIN : pointe bien vers l'extension finance */
+    "fin": "http://tscp-framework.org/ontology/extensions/finance#",
+    "gme": "http://tscp-framework.org/data/gamestop-2021#"
+  },
+  "@id": "gme:CaseStudy_Narrative",
+  "@type": "owl:Ontology",
+  "rdfs:label": "M0: GameStop & The Hodlers Influence",
+  "versionInfo": "1.4.0-FULL-ABSOLUTE",
+  /* Import absolu vers le fichier d'extension dans le dossier extensions */
+  "owl:imports": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/extensions/TSCP_M1_Ext_Ontology_FinancialMarket.jsonld",
+  
+  "@graph": [
+    /* QUESTION */
+    {
+      "@id": "gme:Central_Question",
+      "@type": "m1:StructuringQuestion",
+      "rdfs:label": "Tell me the key steps of this episode and to what extent the dynamic of 'hodlers' influenced the regulation of Hedge Funds institutionally."
+    },
+
+    /* ACTORS */
+    { "@id": "gme:The_Hodlers", "@type": "fin:Hodler", "rdfs:label": "The Diamond Hands (r/WSB)" },
+    { "@id": "gme:Melvin_Capital", "@type": "fin:HedgeFund", "rdfs:label": "Melvin Capital" },
+    { "@id": "gme:SEC_Institution", "@type": "fin:Regulator", "rdfs:label": "SEC (US Gov)" },
+
+    /* STEPS */
+    {
+      "@id": "gme:Step1_TheHold",
+      "@type": "m1:NarrativeStep",
+      "rdfs:label": "Episode 1: The Buy & Hold",
+      "m1:answers": { "@id": "gme:Central_Question" },
+      "rdfs:comment": "Hodlers absorb the floating supply. Creation of a physical scarcity."
+    },
+    {
+      "@id": "gme:Step2_TheSqueeze",
+      "@type": "fin:ShortSqueeze",
+      "rdfs:label": "Episode 2: The Gamma Squeeze",
+      "m1:induces": { "@id": "gme:Melvin_Collapse" },
+      "m1:answers": { "@id": "gme:Central_Question" },
+      "rdfs:comment": "The stubbornness of Hodlers forces short covering."
+    },
+    {
+      "@id": "gme:Step3_RegulatoryInertia",
+      "@type": "fin:RegulationPolicy",
+      "rdfs:label": "Episode 3: The Institutional Response",
+      "m1:answers": { "@id": "gme:Central_Question" },
+      "rdfs:comment": "Regulation produced reports without major structural rule changes."
+    },
+
+    /* CONCLUSION */
+    {
+      "@id": "gme:Conclusion_Relation",
+      "@type": "m1:induces", 
+      "rdfs:label": "Low Influence / Decoupling",
+      "rdfs:domain": "gme:The_Hodlers",
+      "rdfs:range": "gme:Step3_RegulatoryInertia",
+      "rdfs:comment": "VERDICT: High influence on Market (Capital) but Low influence on Law (Regulation)."
+    }
+  ]
+}

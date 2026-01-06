@@ -1,0 +1,83 @@
+{
+  "@context": {
+    "tscp": "https://github.com/Echopraxium/tscp-framework/ontology/",
+    "m3": "https://github.com/Echopraxium/tscp-framework/ontology/TSCP_M3_Ontology.jsonld",
+    "m2": "https://github.com/Echopraxium/tscp-framework/ontology/m2#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "sig": "tscp:tensorSignature",
+    "derivedFrom": { "@id": "tscp:derivedFrom", "@type": "@id" },
+    "requires": { "@id": "tscp:requires", "@type": "@id" },
+    "projection": "tscp:projectionType"
+  },
+  "@id": "tscp:TSCP_M2_Ontology.jsonld",
+  "rdfs:label": "TSCP M2 Full Standard (44 Invariants)",
+  "description": "The complete abstract syntax of the framework, containing all 44 fundamental systemic concepts.",
+  "@graph": [
+    
+    /* --- 1. CORE STRUCTURE (The Container) --- */
+    { "@id": "m2:System", "sig": "\\mathbf{S}", "projection": "Constructive" },
+    { "@id": "m2:Component", "sig": "c \\in \\mathbf{S}", "projection": "Constructive" },
+    { "@id": "m2:Space", "sig": "\\mathcal{V}", "projection": "Constructive" },
+    { "@id": "m2:Boundary", "sig": "\\partial \\mathcal{V}", "projection": "Constructive" },
+    { "@id": "m2:Environment", "sig": "\\mathcal{V}_{ext}", "projection": "Constructive" },
+    { "@id": "m2:Substrate", "sig": "\\Sigma", "projection": "Constructive", "rdfs:comment": "The physical medium supporting the agents." },
+
+    /* --- 2. ACTIVE ENTITIES (The Actors) --- */
+    { "@id": "m2:Agent", "sig": "\\mathcal{A}", "projection": "Constructive" },
+    { "@id": "m2:Observer", "sig": "\\mathcal{O}", "projection": "Analytic", "rdfs:comment": "An entity capable of decoding meaning." },
+    { "@id": "m2:Identity", "sig": "\\mathbf{I}", "projection": "Analytic" },
+    { "@id": "m2:Role", "sig": "\\mathbf{R}", "projection": "Analytic" },
+
+    /* --- 3. RESOURCES & PHYSICS (The Fuel) --- */
+    { "@id": "m2:Resource", "sig": "R", "projection": "Constructive" },
+    { "@id": "m2:Energy", "sig": "E", "projection": "Constructive" },
+    { "@id": "m2:Matter", "sig": "M", "projection": "Constructive" },
+    { "@id": "m2:Gradient", "sig": "\\nabla", "projection": "Constructive" },
+
+    /* --- 4. DYNAMICS & TIME (The Flow) --- */
+    { "@id": "m2:Temporality", "sig": "t", "projection": "Analytic" },
+    { "@id": "m2:State", "sig": "\\mathbf{s}(t)", "projection": "Analytic" },
+    { "@id": "m2:Trajectory", "sig": "\\tau", "projection": "Constructive" },
+    { "@id": "m2:Event", "sig": "\\delta", "projection": "Constructive" },
+    { "@id": "m2:Process", "sig": "P", "projection": "Constructive" },
+    { "@id": "m2:Transformation", "sig": "\\mathbf{T}", "projection": "Constructive" },
+    { "@id": "m2:Interaction", "sig": "\\mathbf{I}_{int}", "projection": "Constructive" },
+    { "@id": "m2:Feedback", "sig": "\\mathcal{F}", "projection": "Constructive", "rdfs:comment": "Circular causality loop." },
+
+    /* --- 5. CONTROL & CONSTRAINTS (The Law) --- */
+    { "@id": "m2:Constraint", "sig": "\\mathbf{C}", "projection": "Constructive" },
+    { "@id": "m2:Rule", "sig": "\\rho", "projection": "Analytic" },
+    { "@id": "m2:Regulation", "sig": "\\mathcal{R}", "projection": "Analytic" },
+    { "@id": "m2:Protocol", "sig": "\\pi", "projection": "Analytic" },
+    { "@id": "m2:Threshold", "sig": "\\theta", "projection": "Analytic" },
+    { "@id": "m2:Parameter", "sig": "\\lambda", "projection": "Analytic" },
+    { "@id": "m2:Variable", "sig": "x", "projection": "Analytic" },
+
+    /* --- 6. INFORMATION & SEMANTICS (The Code) --- */
+    { "@id": "m2:Signal", "sig": "\\sigma", "projection": "Analytic" },
+    { "@id": "m2:Message", "sig": "\\mu", "projection": "Analytic" },
+    { "@id": "m2:Code", "sig": "\\kappa", "projection": "Analytic" },
+    { "@id": "m2:Language", "sig": "\\mathcal{L}", "projection": "Analytic" },
+    { "@id": "m2:Representation", "sig": "\\phi", "projection": "Analytic" },
+    { "@id": "m2:Information", "sig": "I", "projection": "Analytic" },
+    
+    /* --- 7. TELEONOMY & PATHOLOGY (The Purpose) --- */
+    { "@id": "m2:Objective", "sig": "\\Omega", "projection": "Analytic" },
+    { "@id": "m2:Attractor", "sig": "\\mathbf{A}", "projection": "Analytic" },
+    { "@id": "m2:Mode", "sig": "\\mathbf{m}", "projection": "Analytic" },
+    { "@id": "m2:Behavior", "sig": "\\mathbf{B}", "projection": "Analytic" },
+    { "@id": "m2:Adaptation", "sig": "\\Delta \\mathbf{S}", "projection": "Constructive" },
+    { "@id": "m2:Resilience", "sig": "\\rho_{sys}", "projection": "Constructive" },
+    
+    /* --- 8. SYSTEMIC HEALTH (Diagnostics) --- */
+    { "@id": "m2:Diagnostic", "sig": "\\mathbf{D}_{diag}", "projection": "Analytic" },
+    { "@id": "m2:Dysfunction", "sig": "\\mathbf{E}_{rr}", "projection": "Analytic" },
+    { "@id": "m2:Repair", "sig": "\\mathbf{R}_{ep}", "projection": "Constructive" },
+
+    /* --- 9. COMPLEX PROPERTIES --- */
+    { "@id": "m2:Transduction", "sig": "\\mathcal{T}", "projection": "Constructive" },
+    { "@id": "m2:Synergy_Pos", "sig": "S^+", "projection": "Constructive" },
+    { "@id": "m2:Synergy_Neg", "sig": "S^-", "projection": "Constructive" },
+    { "@id": "m2:Facet", "sig": "F", "projection": "Analytic" }
+  ]
+}
