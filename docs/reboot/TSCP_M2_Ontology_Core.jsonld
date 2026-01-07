@@ -1,0 +1,105 @@
+{
+  "@context": {
+    "m3": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Ontology_Core.jsonld#",
+    /* SELF-REFERENCE: M2 knows its own absolute address */
+    "m2": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M2_Ontology_Core.jsonld#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "projection": "m3:projectionType",
+    "tensor": "m3:tensorConfiguration",
+    "dirac": "m3:diracEquation"
+  },
+  "@id": "m2:Ontology_Core",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M2 Core: The Periodic Table (Final 50 Invariants)",
+  "versionInfo": "1.5.0-SELF-AWARE",
+  "description": "The complete set of 50 fundamental invariants. Self-referenced and linked to M3.",
+  "owl:imports": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Ontology_Core.jsonld",
+  
+  "@graph": [
+    
+    /* =========================================================
+       FAMILY 1: ARCHITECTURE & TOPOLOGY (7 Invariants)
+       ========================================================= */
+    { "@id": "m2:System", "projection": "Constructive", "tensor": "[ S:0.4 | I:0.2 | D:0.2 | T:0.2 ]", "dirac": "0.4|S⟩ + 0.2|I⟩ + 0.2|D⟩ + 0.2|T⟩", "rdfs:label": "System" },
+    { "@id": "m2:Component", "projection": "Constructive", "tensor": "[ S:0.9 | I:0.0 | D:0.1 | T:0.0 ]", "dirac": "0.9|S⟩ + 0.1|D⟩", "rdfs:label": "Component" },
+    { "@id": "m2:Boundary", "projection": "Constructive", "tensor": "[ S:1.0 | I:0.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|S⟩", "rdfs:label": "Boundary" },
+    { "@id": "m2:Interface", "projection": "Constructive", "tensor": "[ S:0.7 | I:0.0 | D:0.3 | T:0.0 ]", "dirac": "0.7|S⟩ + 0.3|D⟩", "rdfs:label": "Interface" },
+    { "@id": "m2:Network", "projection": "Constructive", "tensor": "[ S:0.6 | I:0.0 | D:0.4 | T:0.0 ]", "dirac": "0.6|S⟩ + 0.4|D⟩", "rdfs:label": "Network" },
+    { "@id": "m2:Environment", "projection": "Constructive", "tensor": "[ S:0.5 | I:0.1 | D:0.3 | T:0.1 ]", "dirac": "0.5|S⟩ + 0.1|I⟩ + 0.3|D⟩ + 0.1|T⟩", "rdfs:label": "Environment" },
+    { "@id": "m2:Substrate", "projection": "Constructive", "tensor": "[ S:0.8 | I:0.0 | D:0.2 | T:0.0 ]", "dirac": "0.8|S⟩ + 0.2|D⟩", "rdfs:label": "Substrate" },
+
+    /* =========================================================
+       FAMILY 2: PHYSICS & RESOURCES (6 Invariants)
+       ========================================================= */
+    { "@id": "m2:Matter", "projection": "Constructive", "tensor": "[ S:1.0 | I:0.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|S⟩", "rdfs:label": "Matter" },
+    { "@id": "m2:Energy", "projection": "Constructive", "tensor": "[ S:0.0 | I:0.0 | D:1.0 | T:0.0 ]", "dirac": "1.0|D⟩", "rdfs:label": "Energy" },
+    { "@id": "m2:Resource", "projection": "Constructive", "tensor": "[ S:0.5 | I:0.0 | D:0.5 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|D⟩", "rdfs:label": "Resource" },
+    { "@id": "m2:Stock", "projection": "Constructive", "tensor": "[ S:0.7 | I:0.0 | D:0.3 | T:0.0 ]", "dirac": "0.7|S⟩ + 0.3|D⟩", "rdfs:label": "Stock" },
+    { "@id": "m2:Flow", "projection": "Constructive", "tensor": "[ S:0.0 | I:0.0 | D:1.0 | T:0.0 ]", "dirac": "1.0|D⟩", "rdfs:label": "Flow" },
+    { "@id": "m2:Gradient", "projection": "Constructive", "tensor": "[ S:0.2 | I:0.0 | D:0.8 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|D⟩", "rdfs:label": "Gradient" },
+
+    /* =========================================================
+       FAMILY 3: DYNAMICS & TIME (7 Invariants)
+       ========================================================= */
+    { "@id": "m2:Event", "projection": "Constructive", "tensor": "[ S:0.0 | I:0.0 | D:1.0 | T:0.0 ]", "dirac": "1.0|D⟩", "rdfs:label": "Event" },
+    { "@id": "m2:Process", "projection": "Constructive", "tensor": "[ S:0.2 | I:0.1 | D:0.7 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.1|I⟩ + 0.7|D⟩", "rdfs:label": "Process" },
+    { "@id": "m2:Trajectory", "projection": "Constructive", "tensor": "[ S:0.1 | I:0.0 | D:0.7 | T:0.2 ]", "dirac": "0.1|S⟩ + 0.7|D⟩ + 0.2|T⟩", "rdfs:label": "Trajectory" },
+    { "@id": "m2:Cycle", "projection": "Constructive", "tensor": "[ S:0.3 | I:0.0 | D:0.7 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.7|D⟩", "rdfs:label": "Cycle" },
+    { "@id": "m2:Interaction", "projection": "Constructive", "tensor": "[ S:0.0 | I:0.0 | D:1.0 | T:0.0 ]", "dirac": "1.0|D⟩", "rdfs:label": "Interaction" },
+    { "@id": "m2:Transduction", "projection": "Constructive", "tensor": "[ S:0.2 | I:0.0 | D:0.8 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|D⟩", "rdfs:label": "Transduction" },
+    { "@id": "m2:Replication", "projection": "Constructive", "tensor": "[ S:0.5 | I:0.5 | D:0.0 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|I⟩", "rdfs:label": "Replication" },
+
+    /* =========================================================
+       FAMILY 4: AGENCY (3 Invariants)
+       ========================================================= */
+    { "@id": "m2:Agent", "projection": "Constructive", "tensor": "[ S:0.3 | I:0.2 | D:0.3 | T:0.2 ]", "dirac": "0.3|S⟩ + 0.2|I⟩ + 0.3|D⟩ + 0.2|T⟩", "rdfs:label": "Agent" },
+    { "@id": "m2:Role", "projection": "Analytic", "tensor": "[ S:0.1 | I:0.5 | D:0.0 | T:0.4 ]", "dirac": "0.1|S⟩ + 0.5|I⟩ + 0.4|T⟩", "rdfs:label": "Role" },
+    { "@id": "m2:Identity", "projection": "Analytic", "tensor": "[ S:0.8 | I:0.2 | D:0.0 | T:0.0 ]", "dirac": "0.8|S⟩ + 0.2|I⟩", "rdfs:label": "Identity" },
+
+    /* =========================================================
+       FAMILY 5: INFORMATION & SEMANTICS (6 Invariants)
+       ========================================================= */
+    { "@id": "m2:Information", "projection": "Analytic", "tensor": "[ S:0.0 | I:1.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|I⟩", "rdfs:label": "Information" },
+    /* Language replaces Data */
+    { "@id": "m2:Language", "projection": "Analytic", "tensor": "[ S:0.3 | I:0.7 | D:0.0 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.7|I⟩", "rdfs:label": "Language" },
+    { "@id": "m2:Signal", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.5 | D:0.5 | T:0.0 ]", "dirac": "0.5|I⟩ + 0.5|D⟩", "rdfs:label": "Signal" },
+    { "@id": "m2:Code", "projection": "Analytic", "tensor": "[ S:0.2 | I:0.8 | D:0.0 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|I⟩", "rdfs:label": "Code" },
+    /* Representation replaces Narrative */
+    { "@id": "m2:Representation", "projection": "Analytic", "tensor": "[ S:0.3 | I:0.7 | D:0.0 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.7|I⟩", "rdfs:label": "Representation" },
+    { "@id": "m2:Diagnostic", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.8 | D:0.0 | T:0.2 ]", "dirac": "0.8|I⟩ + 0.2|T⟩", "rdfs:label": "Diagnostic" },
+
+    /* =========================================================
+       FAMILY 6: LOGIC & CONTROL (8 Invariants)
+       ========================================================= */
+    { "@id": "m2:Rule", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.7 | D:0.0 | T:0.3 ]", "dirac": "0.7|I⟩ + 0.3|T⟩", "rdfs:label": "Rule" },
+    { "@id": "m2:Constraint", "projection": "Constructive", "tensor": "[ S:0.8 | I:0.0 | D:0.2 | T:0.0 ]", "dirac": "0.8|S⟩ + 0.2|D⟩", "rdfs:label": "Constraint" },
+    { "@id": "m2:Regulation", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.5 | D:0.0 | T:0.5 ]", "dirac": "0.5|I⟩ + 0.5|T⟩", "rdfs:label": "Regulation" },
+    { "@id": "m2:Protocol", "projection": "Analytic", "tensor": "[ S:0.3 | I:0.7 | D:0.0 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.7|I⟩", "rdfs:label": "Protocol" },
+    { "@id": "m2:Threshold", "projection": "Analytic", "tensor": "[ S:0.0 | I:1.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|I⟩", "rdfs:label": "Threshold" },
+    { "@id": "m2:Variable", "projection": "Analytic", "tensor": "[ S:0.1 | I:0.9 | D:0.0 | T:0.0 ]", "dirac": "0.1|S⟩ + 0.9|I⟩", "rdfs:label": "Variable" },
+    { "@id": "m2:Parameter", "projection": "Analytic", "tensor": "[ S:0.5 | I:0.5 | D:0.0 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|I⟩", "rdfs:label": "Parameter" },
+    { "@id": "m2:Relation", "projection": "Analytic", "tensor": "[ S:0.0 | I:1.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|I⟩", "rdfs:label": "Relation" },
+
+    /* =========================================================
+       FAMILY 7: TELEONOMY & GOALS (4 Invariants)
+       ========================================================= */
+    { "@id": "m2:Objective", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.2 | D:0.0 | T:0.8 ]", "dirac": "0.2|I⟩ + 0.8|T⟩", "rdfs:label": "Objective" },
+    { "@id": "m2:Function", "projection": "Analytic", "tensor": "[ S:0.3 | I:0.0 | D:0.2 | T:0.5 ]", "dirac": "0.3|S⟩ + 0.2|D⟩ + 0.5|T⟩", "rdfs:label": "Function" },
+    { "@id": "m2:Strategy", "projection": "Analytic", "tensor": "[ S:0.1 | I:0.4 | D:0.0 | T:0.5 ]", "dirac": "0.1|S⟩ + 0.4|I⟩ + 0.5|T⟩", "rdfs:label": "Strategy" },
+    { "@id": "m2:Attractor", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.0 | D:0.0 | T:1.0 ]", "dirac": "1.0|T⟩", "rdfs:label": "Attractor" },
+
+    /* =========================================================
+       FAMILY 8: COMPLEX PROPERTIES (9 Invariants)
+       ========================================================= */
+    { "@id": "m2:State", "projection": "Analytic", "tensor": "[ S:0.5 | I:0.5 | D:0.0 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|I⟩", "rdfs:label": "State" },
+    { "@id": "m2:Equilibrium", "projection": "Constructive", "tensor": "[ S:0.5 | I:0.0 | D:0.5 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|D⟩", "rdfs:label": "Equilibrium" },
+    { "@id": "m2:Stability", "projection": "Analytic", "tensor": "[ S:0.6 | I:0.0 | D:0.2 | T:0.2 ]", "dirac": "0.6|S⟩ + 0.2|D⟩ + 0.2|T⟩", "rdfs:label": "Stability" },
+    { "@id": "m2:Resilience", "projection": "Constructive", "tensor": "[ S:0.4 | I:0.0 | D:0.4 | T:0.2 ]", "dirac": "0.4|S⟩ + 0.4|D⟩ + 0.2|T⟩", "rdfs:label": "Resilience" },
+    { "@id": "m2:Synergy_Pos", "projection": "Constructive", "tensor": "[ S:0.2 | I:0.0 | D:0.8 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|D⟩", "rdfs:label": "Synergy (+)" },
+    { "@id": "m2:Synergy_Neg", "projection": "Constructive", "tensor": "[ S:0.2 | I:0.0 | D:0.8 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|D⟩", "rdfs:label": "Synergy (-)" },
+    { "@id": "m2:Bifurcation", "projection": "Analytic", "tensor": "[ S:0.0 | I:0.5 | D:0.5 | T:0.0 ]", "dirac": "0.5|I⟩ + 0.5|D⟩", "rdfs:label": "Bifurcation" },
+    { "@id": "m2:Dysfunction", "projection": "Analytic", "tensor": "[ S:0.5 | I:0.0 | D:0.5 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|D⟩", "rdfs:label": "Dysfunction" },
+    { "@id": "m2:Adaptation", "projection": "Constructive", "tensor": "[ S:0.4 | I:0.2 | D:0.2 | T:0.2 ]", "dirac": "0.4|S⟩ + 0.2|I⟩ + 0.2|D⟩ + 0.2|T⟩", "rdfs:label": "Adaptation" }
+  ]
+}

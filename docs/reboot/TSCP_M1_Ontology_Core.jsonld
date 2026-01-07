@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "m3": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Ontology_Core.jsonld#",
+    "m2": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M2_Ontology_Core.jsonld#",
+    "m1": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M1_Ontology_Core.jsonld#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "@id": "m1:Ontology_Core",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M1 Core: Universal Toolbox",
+  "versionInfo": "1.4.0-GITHUB-ABSOLUTE",
+  "description": "The generic modeling layer (Max 125 cells). Contains universal connectors and the narrative structure kit.",
+  "owl:imports": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M2_Ontology_Core.jsonld",
+  
+  "@graph": [
+    /* ... (Contenu inchangé : Connecteurs & Kit Narratif) ... */
+    
+    /* UNIVERSAL CONNECTORS */
+    { "@id": "m1:Connector", "@type": "owl:Class", "rdfs:label": "Universal Connector" },
+    { "@id": "m1:induces", "@type": "owl:ObjectProperty", "rdfs:subPropertyOf": "m1:Connector", "rdfs:label": "Induces (Causality)" },
+    { "@id": "m1:consumes", "@type": "owl:ObjectProperty", "rdfs:subPropertyOf": "m1:Connector", "rdfs:label": "Consumes" },
+    { "@id": "m1:opposes", "@type": "owl:ObjectProperty", "rdfs:subPropertyOf": "m1:Connector", "rdfs:label": "Opposes" },
+    { "@id": "m1:regulates", "@type": "owl:ObjectProperty", "rdfs:subPropertyOf": "m1:Connector", "rdfs:label": "Regulates" },
+    { "@id": "m1:observes", "@type": "owl:ObjectProperty", "rdfs:subPropertyOf": "m1:Connector", "rdfs:label": "Observes" },
+
+    /* THE NARRATIVE KIT */
+    { "@id": "m1:StructuringQuestion", "@type": "owl:Class", "rdfs:subClassOf": "m2:Objective", "m3:projection": "Analytic", "rdfs:label": "The Structuring Question" },
+    { "@id": "m1:NarrativeStep", "@type": "owl:Class", "rdfs:subClassOf": "m2:Event", "rdfs:label": "Narrative Step/Episode" },
+    { "@id": "m1:SourceReference", "@type": "owl:Class", "rdfs:subClassOf": "m2:Information", "rdfs:label": "Bibliographic Source" },
+    { "@id": "m1:answers", "@type": "owl:ObjectProperty", "rdfs:domain": "m1:NarrativeStep", "rdfs:range": "m1:StructuringQuestion", "rdfs:label": "Answers/Contributes To" },
+    { "@id": "m1:citedIn", "@type": "owl:ObjectProperty", "rdfs:domain": "m2:Information", "rdfs:range": "m1:SourceReference", "rdfs:label": "Cited In" },
+
+    /* THE PURGATORY */
+    { "@id": "m1:Sandbox", "@type": "owl:Class", "rdfs:label": "Design Sandbox" },
+    { "@id": "m1:DraftVector", "@type": "owl:Class", "rdfs:label": "Draft Concept" },
+    { "@id": "m1:crystallizesAs", "@type": "owl:ObjectProperty", "rdfs:domain": "m1:DraftVector", "rdfs:range": "m2:System", "rdfs:label": "Crystallizes As" }
+  ]
+}

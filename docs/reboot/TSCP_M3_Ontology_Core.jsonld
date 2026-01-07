@@ -1,0 +1,52 @@
+{
+  "@context": {
+    /* SELF-REFERENCE: M3 knows its own absolute address */
+    "m3": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Ontology_Core.jsonld#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "@id": "m3:Ontology_Core",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M3 Core: Fundamental Hilbert Space",
+  "versionInfo": "3.7.0-SELF-AWARE",
+  "description": "The immutable Substrate and the two Canonical Projectors defining the Analytic/Constructive duality.",
+  
+  "@graph": [
+    /* 1. THE SUBSTRATE (The 4 Dimensions) */
+    { 
+      "@id": "m3:HilbertSubstrate", 
+      "@type": "m3:FundamentalSpace", 
+      "m3:hasDimension": [
+        { "@id": "m3:Structure", "m3:symbol": "|S⟩" },
+        { "@id": "m3:Information", "m3:symbol": "|I⟩" },
+        { "@id": "m3:Dynamics", "m3:symbol": "|D⟩" },
+        { "@id": "m3:Teleonomy", "m3:symbol": "|T⟩" }
+      ]
+    },
+    { "@id": "m3:Structure", "@type": "m3:FundamentalInvariant", "rdfs:label": "STRUCTURE |S⟩" },
+    { "@id": "m3:Information", "@type": "m3:FundamentalInvariant", "rdfs:label": "INFORMATION |I⟩" },
+    { "@id": "m3:Dynamics", "@type": "m3:FundamentalInvariant", "rdfs:label": "DYNAMIQUE |D⟩" },
+    { "@id": "m3:Teleonomy", "@type": "m3:FundamentalInvariant", "rdfs:label": "TELEONOMIE |T⟩" },
+
+    /* 2. THE CANONICAL PROJECTORS (Identity) */
+    {
+      "@id": "m3:AnalyticProjector",
+      "@type": "m3:CanonicalOperator",
+      "m3:symbol": "P_A",
+      "rdfs:label": "Analytic Projector (Observer)",
+      "m3:generates": { "@id": "m3:AnalyticSubspace" }
+    },
+    {
+      "@id": "m3:ConstructiveProjector",
+      "@type": "m3:CanonicalOperator",
+      "m3:symbol": "P_C",
+      "rdfs:label": "Constructive Projector (Actor)",
+      "m3:generates": { "@id": "m3:ConstructiveSubspace" }
+    },
+
+    /* 3. TENSOR SIGNATURE DEFINITIONS (Used by M2) */
+    { "@id": "m3:projectionType", "@type": "owl:Property", "rdfs:label": "Projection Type (Identity)" },
+    { "@id": "m3:tensorConfiguration", "@type": "owl:Property", "rdfs:label": "Tensor Config [S|I|D|T]" },
+    { "@id": "m3:diracEquation", "@type": "owl:Property", "rdfs:label": "Dirac Notation" }
+  ]
+}
