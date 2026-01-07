@@ -5,6 +5,8 @@
     <Project Path="src/TSCP.CLI/TSCP.CLI.csproj" />
     <Project Path="src/TSCP.GUI/TSCP.GUI.fsproj" />
     <Project Path="src/TSCP.Server/TSCP.Server.fsproj" />
+	
+	<Project Path="src/TSCP.Doc2B64z/TSCP.Doc2B64z.csproj" />
     
     <Project Path="src/TSCP.Tests/TSCP.Tests.fsproj" />
   </Folder>

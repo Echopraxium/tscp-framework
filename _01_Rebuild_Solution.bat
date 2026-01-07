@@ -1,12 +1,18 @@
 @echo off
 :: uuid: e8f4a2b1-c3d4-4b1e-9a2f-7c8b9d0e1f2a
-:: This script launches a PowerShell window to perform a deep rebuild safely.
-:: It checks for running TSCP processes (CLI, Server, GUI) to prevent file locking.
-:: It cleans bin, obj, and the hidden .vs folder (Visual Studio cache).
+:: Script de Rebuild Sécurisé (Deep Clean + Build)
+:: Protection contre les verrous de fichiers (File Locks)
 
-:: Define the PowerShell logic in a single variable.
-:: Logic: Check list of processes -> If any running, list them and exit -> Clean bin/obj/.vs -> dotnet rebuild.
-set "PS_LOGIC=$targets = 'TSCP.CLI','TSCP.Server','TSCP.GUI'; Write-Host '--- TSCP REBUILD SHIELD ---' -Fore Cyan; $running = Get-Process -Name $targets -ErrorAction SilentlyContinue; if ($running) { Write-Host '' ; Write-Host 'ERROR: The following processes are running:' -Fore Red; $running | ForEach-Object { Write-Host (' - ' + $_.ProcessName) -Fore Yellow }; Write-Host 'Please close them to release file locks.' -Fore Red; return }; Write-Host 'No locks detected. Starting deep clean...' -Fore Green; Get-ChildItem -Path . -Include bin,obj -Recurse | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue; if (Test-Path .\.vs) { Remove-Item -Path .\.vs -Recurse -Force -ErrorAction SilentlyContinue; Write-Host 'Visual Studio cache (.vs) cleaned.' -Fore Gray }; dotnet clean; dotnet restore; dotnet build; Write-Host '' ; Write-Host 'Rebuild completed successfully.' -Fore Green"
+:: 1. Définition des cibles à surveiller (Les applications qui pourraient verrouiller les DLLs)
+::    Note: On inclut TSCP.Doc2B64z qui est notre nouvel outil.
+set "TARGETS='TSCP.CLI','TSCP.Server','TSCP.GUI','TSCP.Doc2B64z'"
 
-:: Launch PowerShell in a new window with the logic
-start powershell -NoExit -Command "& { %PS_LOGIC% }"
+:: 2. Construction de la logique PowerShell
+::    - Vérifie si les processus tournent.
+::    - Si OUI : Alerte rouge + Liste les coupables + STOP.
+::    - Si NON : Nettoyage (bin/obj/.vs) + Rebuild.
+
+set "PS_LOGIC=$targets = %TARGETS%; Write-Host '--- TSCP REBUILD SHIELD ---' -Fore Cyan; $running = Get-Process -Name $targets -ErrorAction SilentlyContinue; if ($running) { Write-Host '' ; Write-Host 'BLOCAGE CRITIQUE : Des processus TSCP sont actifs !' -Fore Red; Write-Host 'Impossible de recompiler car les fichiers sont verrouilles.' -Fore Red; Write-Host 'Veuillez fermer les fenetres suivantes :' -Fore Yellow; $running | ForEach-Object { Write-Host (' [X] ' + $_.ProcessName + ' (ID: ' + $_.Id + ')') -Fore Yellow }; Write-Host ''; Read-Host 'Appuyez sur Entree pour quitter sans rien faire...'; return }; Write-Host 'Aucun verrou detecte. Demarrage du nettoyage...' -Fore Green; Get-ChildItem -Path . -Include bin,obj -Recurse | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue; if (Test-Path .\.vs) { Remove-Item -Path .\.vs -Recurse -Force -ErrorAction SilentlyContinue; Write-Host 'Cache Visual Studio (.vs) nettoye.' -Fore Gray }; Write-Host 'Lancement de dotnet build...' -Fore Cyan; dotnet clean; dotnet restore; dotnet build; if ($LASTEXITCODE -eq 0) { Write-Host '' ; Write-Host 'SUCCES : La solution est a jour.' -Fore Green } else { Write-Host '' ; Write-Host 'ECHEC du build.' -Fore Red }; Read-Host 'Appuyez sur Entree pour fermer...'"
+
+:: 3. Exécution dans une nouvelle fenêtre PowerShell
+start "TSCP Builder" powershell -NoExit -Command "& { %PS_LOGIC% }"
