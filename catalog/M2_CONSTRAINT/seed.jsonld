@@ -1,0 +1,16 @@
+{
+  "Id": "M2_CONSTRAINT",
+  "Name": "Constraint",
+  "Description": "A limitation or restriction.",
+  "Signature": {
+    "Structure": 0.8,
+    "Information": 0,
+    "Dynamics": 0.2,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Logic",
+    "Constructive"
+  ]
+}

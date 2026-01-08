@@ -1,0 +1,16 @@
+{
+  "Id": "M2_OBJECTIVE",
+  "Name": "Objective",
+  "Description": "A thing aimed at or sought; a goal.",
+  "Signature": {
+    "Structure": 0,
+    "Information": 0.2,
+    "Dynamics": 0,
+    "Teleonomy": 0.8
+  },
+  "Tags": [
+    "M2",
+    "Teleonomy",
+    "Analytic"
+  ]
+}

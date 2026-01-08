@@ -10,6 +10,7 @@ using Microsoft.FSharp.Core;
 
 namespace TSCP.CLI
 {
+	[Uuid("9c0e1f2a-3b4c-5d6e-7f8g-9h0i1j2k3l4m")]
     class Program
     {
         // Initialize State with the new F# Record structure

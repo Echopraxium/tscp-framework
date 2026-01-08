@@ -1,0 +1,58 @@
+{
+  "@context": {
+    /* SELF-REFERENCE: M3 absolute address for ontological integrity  */
+    "m3": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Genesis_Ontology.jsonld#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "meta": "https://tscp.dev/m3/meta#"
+  },
+  "@id": "m3:Genesis_Ontology",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M3: Genesis Ontology (Hilbert Substrate)",
+  "versionInfo": "5.0.0-GENESIS",
+  "description": "The primordial Substrate and Canonical Projectors defining the Analytical/Constructive duality.",
+  
+  "@graph": [
+    /* 1. THE HILBERT SUBSTRATE (Fundamental Invariants) */
+    { 
+      "@id": "m3:HilbertSubstrate", 
+      "@type": "m3:FundamentalSpace", 
+      "rdfs:label": "M3 Hilbert Space",
+      "m3:hasDimension": [
+        { "@id": "m3:Structure", "m3:symbol": "|S⟩" },
+        { "@id": "m3:Information", "m3:symbol": "|I⟩" },
+        { "@id": "m3:Dynamics", "m3:symbol": "|D⟩" },
+        { "@id": "m3:Teleonomy", "m3:symbol": "|T⟩" }
+      ]
+    },
+
+    /* DIMENSION DEFINITIONS  */
+    { "@id": "m3:Structure", "@type": "m3:FundamentalInvariant", "rdfs:label": "STRUCTURE |S⟩" },
+    { "@id": "m3:Information", "@type": "m3:FundamentalInvariant", "rdfs:label": "INFORMATION |I⟩" },
+    { "@id": "m3:Dynamics", "@type": "m3:FundamentalInvariant", "rdfs:label": "DYNAMICS |D⟩" },
+    { "@id": "m3:Teleonomy", "@type": "m3:FundamentalInvariant", "rdfs:label": "TELEONOMY |T⟩" },
+
+    /* 2. CONSTRUCTIVIST TENSOR SPACES (Projected State Spaces) */
+    {
+      "@id": "m3:AnalyticalSpace",
+      "@type": "m3:TensorSpace",
+      "m3:symbol": "P_A",
+      "rdfs:label": "Analytical State Space (Observer)",
+      "m3:composedOf": [ { "@id": "m3:Structure" }, { "@id": "m3:Information" } ],
+      "rdfs:comment": "The space of descriptive truth and systemic coherence."
+    },
+    {
+      "@id": "m3:ConstructiveSpace",
+      "@type": "m3:TensorSpace",
+      "m3:symbol": "P_C",
+      "rdfs:label": "Constructive State Space (Actor)",
+      "m3:composedOf": [ { "@id": "m3:Dynamics" }, { "@id": "m3:Teleonomy" } ],
+      "rdfs:comment": "The space of action, willpower, and evolutionary drive."
+    },
+
+    /* 3. TENSOR SIGNATURE DEFINITIONS  */
+    { "@id": "m3:projectionType", "@type": "owl:Property", "rdfs:label": "Projection Type" },
+    { "@id": "m3:tensorConfiguration", "@type": "owl:Property", "rdfs:label": "Tensor Config [S|I|D|T]" },
+    { "@id": "m3:diracNotation", "@type": "owl:Property", "rdfs:label": "Dirac Equation Notation" }
+  ]
+}

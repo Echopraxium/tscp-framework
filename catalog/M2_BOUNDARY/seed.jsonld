@@ -1,0 +1,16 @@
+{
+  "Id": "M2_BOUNDARY",
+  "Name": "Boundary",
+  "Description": "The limit distinguishing system from environment.",
+  "Signature": {
+    "Structure": 1,
+    "Information": 0,
+    "Dynamics": 0,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Architecture",
+    "Constructive"
+  ]
+}

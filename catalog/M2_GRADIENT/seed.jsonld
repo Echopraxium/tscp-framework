@@ -1,0 +1,16 @@
+{
+  "Id": "M2_GRADIENT",
+  "Name": "Gradient",
+  "Description": "Increase or decrease in the magnitude of a property.",
+  "Signature": {
+    "Structure": 0.2,
+    "Information": 0,
+    "Dynamics": 0.8,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Physics",
+    "Constructive"
+  ]
+}

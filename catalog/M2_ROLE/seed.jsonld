@@ -1,0 +1,16 @@
+{
+  "Id": "M2_ROLE",
+  "Name": "Role",
+  "Description": "The function assumed or part played.",
+  "Signature": {
+    "Structure": 0.1,
+    "Information": 0.5,
+    "Dynamics": 0,
+    "Teleonomy": 0.4
+  },
+  "Tags": [
+    "M2",
+    "Agency",
+    "Analytic"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Id": "M2_FUNCTION",
+  "Name": "Function",
+  "Description": "An activity or purpose natural to or intended for a person or thing.",
+  "Signature": {
+    "Structure": 0.3,
+    "Information": 0,
+    "Dynamics": 0.2,
+    "Teleonomy": 0.5
+  },
+  "Tags": [
+    "M2",
+    "Teleonomy",
+    "Analytic"
+  ]
+}

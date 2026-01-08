@@ -1,0 +1,16 @@
+{
+  "Id": "M2_IDENTITY",
+  "Name": "Identity",
+  "Description": "The fact of being who or what a person or thing is.",
+  "Signature": {
+    "Structure": 0.8,
+    "Information": 0.2,
+    "Dynamics": 0,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Agency",
+    "Analytic"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "@context": { "m3": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Genesis_Ontology.jsonld#", "m2": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M2_MetaConcepts_Ontology.jsonld#", "rdfs": "http://www.w3.org/2000/01/rdf-schema#", "owl": "http://www.w3.org/2002/07/owl#", "projection": "m3:projectionType", "tensor": "m3:tensorConfiguration", "dirac": "m3:diracEquation" },
+  "@id": "m2:MetaConcepts_Ontology",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M2: Meta-Concepts (The 53 Systemic Invariants)",
+  "versionInfo": "9.1.0-ORGANIC-FINAL",
+  "description": "The complete definition of the structural, existential, and dynamic prototypes.",
+  "owl:imports": { "@id": "m3:Genesis_Ontology" },
+  "@graph": [
+    /* 1. EXISTENCE & IDENTITY */
+    { "@id": "m2:System", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.5 | I:0.5 | D:0.5 | T:0.5 ]", "dirac": "0.5|S⟩ + 0.5|I⟩ + 0.5|D⟩ + 0.5|T⟩", "rdfs:label": "System" },
+    { "@id": "m2:Environment", "projection": "m3:ConstructiveSpace", "tensor": "[ S:1.0 | I:0.0 | D:1.0 | T:0.0 ]", "dirac": "1.0|S⟩ + 1.0|D⟩", "rdfs:label": "Environment" },
+    { "@id": "m2:Identity", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.2 | I:0.8 | D:0.0 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|I⟩", "rdfs:label": "Identity" },
+    { "@id": "m2:Facet", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.5 | D:0.0 | T:0.5 ]", "dirac": "0.5|I⟩ + 0.5|T⟩", "rdfs:label": "Facet" },
+    { "@id": "m2:Substrate", "projection": "m3:ConstructiveSpace", "tensor": "[ S:1.0 | I:0.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|S⟩", "rdfs:label": "Substrate" },
+
+    /* 2. AGENCY */
+    { "@id": "m2:Agent", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.3 | I:0.2 | D:0.3 | T:0.2 ]", "dirac": "0.3|S⟩ + 0.2|I⟩ + 0.3|D⟩ + 0.2|T⟩", "rdfs:label": "Agent" },
+    { "@id": "m2:Role", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.1 | I:0.7 | D:0.0 | T:0.2 ]", "dirac": "0.1|S⟩ + 0.7|I⟩ + 0.2|T⟩", "rdfs:label": "Role", "rdfs:comment": "The set of behavioral expectations and functional responsibilities assigned to an entity." },
+    { "@id": "m2:Mediator", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.2 | I:0.6 | D:0.2 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.6|I⟩ + 0.2|D⟩", "rdfs:label": "Mediator" },
+    { "@id": "m2:Observer", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.1 | I:0.7 | D:0.0 | T:0.2 ]", "dirac": "0.1|S⟩ + 0.7|I⟩ + 0.2|T⟩", "rdfs:label": "Observer" },
+
+    /* 3. ARCHITECTURE */
+    { "@id": "m2:Component", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.6 | I:0.4 | D:0.0 | T:0.0 ]", "dirac": "0.6|S⟩ + 0.4|I⟩", "rdfs:label": "Component" },
+    { "@id": "m2:Boundary", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.9 | I:0.1 | D:0.0 | T:0.0 ]", "dirac": "0.9|S⟩ + 0.1|I⟩", "rdfs:label": "Boundary" },
+    { "@id": "m2:Interface", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.7 | I:0.3 | D:0.0 | T:0.0 ]", "dirac": "0.7|S⟩ + 0.3|I⟩", "rdfs:label": "Interface" },
+    { "@id": "m2:Network", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.3 | I:0.4 | D:0.3 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.4|I⟩ + 0.3|D⟩", "rdfs:label": "Network" },
+    { "@id": "m2:Hierarchy", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.5 | I:0.5 | D:0.0 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|I⟩", "rdfs:label": "Hierarchy" },
+    { "@id": "m2:Scale", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.5 | I:0.5 | D:0.0 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|I⟩", "rdfs:label": "Scale" },
+    { "@id": "m2:Redundancy", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.6 | I:0.4 | D:0.0 | T:0.0 ]", "dirac": "0.6|S⟩ + 0.4|I⟩", "rdfs:label": "Redundancy" },
+    { "@id": "m2:Capacity", "projection": "m3:AnalyticalSpace", "tensor": "[ S:1.0 | I:0.0 | D:0.0 | T:0.0 ]", "dirac": "1.0|S⟩", "rdfs:label": "Capacity" },
+
+    /* 4. DYNAMICS & TIME */
+    { "@id": "m2:Temporality", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.1 | D:0.1 | T:0.8 ]", "dirac": "0.1|I⟩ + 0.1|D⟩ + 0.8|T⟩", "rdfs:label": "Temporality" },
+    { "@id": "m2:Transduction", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.1 | I:0.5 | D:0.5 | T:0.0 ]", "dirac": "0.1|S⟩ + 0.5|I⟩ + 0.5|D⟩", "rdfs:label": "Transduction" },
+    { "@id": "m2:Flow", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.1 | D:0.9 | T:0.0 ]", "dirac": "0.1|I⟩ + 0.9|D⟩", "rdfs:label": "Flow" },
+    { "@id": "m2:State", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.5 | I:0.5 | D:0.0 | T:0.0 ]", "dirac": "0.5|S⟩ + 0.5|I⟩", "rdfs:label": "State" },
+    { "@id": "m2:Event", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.3 | D:0.7 | T:0.0 ]", "dirac": "0.3|I⟩ + 0.7|D⟩", "rdfs:label": "Event" },
+    { "@id": "m2:Transformation", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.3 | I:0.1 | D:0.6 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.1|I⟩ + 0.6|D⟩", "rdfs:label": "Transformation" },
+    { "@id": "m2:Trajectory", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.1 | I:0.1 | D:0.8 | T:0.0 ]", "dirac": "0.1|S⟩ + 0.1|I⟩ + 0.8|D⟩", "rdfs:label": "Trajectory" },
+    { "@id": "m2:Bifurcation", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.5 | D:0.5 | T:0.0 ]", "dirac": "0.5|I⟩ + 0.5|D⟩", "rdfs:label": "Bifurcation" },
+
+    /* 5. PHYSICS */
+    { "@id": "m2:Resource", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.6 | I:0.0 | D:0.4 | T:0.0 ]", "dirac": "0.6|S⟩ + 0.4|D⟩", "rdfs:label": "Resource" },
+    { "@id": "m2:Entropy", "projection": "m3:ConstructiveSpace", "tensor": "[ S:-0.5 | I:-0.5 | D:1.0 | T:0.0 ]", "dirac": "-0.5|S⟩ - 0.5|I⟩ + 1.0|D⟩", "rdfs:label": "Entropy" },
+    { "@id": "m2:Gradient", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.2 | I:0.0 | D:0.8 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|D⟩", "rdfs:label": "Gradient" },
+
+    /* 6. CONTROL & LOGIC */
+    { "@id": "m2:Coherence", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.3 | I:0.7 | D:0.0 | T:0.0 ]", "dirac": "0.3|S⟩ + 0.7|I⟩", "rdfs:label": "Coherence" },
+    { "@id": "m2:Rule", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.6 | D:0.0 | T:0.4 ]", "dirac": "0.6|I⟩ + 0.4|T⟩", "rdfs:label": "Rule" },
+    { "@id": "m2:Constraint", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.8 | D:0.0 | T:0.2 ]", "dirac": "0.8|I⟩ + 0.2|T⟩", "rdfs:label": "Constraint" },
+    { "@id": "m2:Protocol", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.9 | D:0.0 | T:0.1 ]", "dirac": "0.9|I⟩ + 0.1|T⟩", "rdfs:label": "Protocol" },
+    { "@id": "m2:Threshold", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.8 | D:0.2 | T:0.0 ]", "dirac": "0.8|I⟩ + 0.2|D⟩", "rdfs:label": "Threshold" },
+    { "@id": "m2:Feedback", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.1 | I:0.5 | D:0.2 | T:0.2 ]", "dirac": "0.1|S⟩ + 0.5|I⟩ + 0.2|D⟩ + 0.2|T⟩", "rdfs:label": "Feedback" },
+
+    /* 7. INFORMATION */
+    { "@id": "m2:Signal", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.9 | D:0.1 | T:0.0 ]", "dirac": "0.9|I⟩ + 0.1|D⟩", "rdfs:label": "Signal" },
+    { "@id": "m2:Gain", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.3 | D:0.7 | T:0.0 ]", "dirac": "0.3|I⟩ + 0.7|D⟩", "rdfs:label": "Gain" },
+    { "@id": "m2:Filter", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.4 | I:0.6 | D:0.0 | T:0.0 ]", "dirac": "0.4|S⟩ + 0.6|I⟩", "rdfs:label": "Filter" },
+    { "@id": "m2:Language", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.9 | D:0.1 | T:0.0 ]", "dirac": "0.9|I⟩ + 0.1|D⟩", "rdfs:label": "Language" },
+    { "@id": "m2:Representation", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.2 | I:0.8 | D:0.0 | T:0.0 ]", "dirac": "0.2|S⟩ + 0.8|I⟩", "rdfs:label": "Representation" },
+    { "@id": "m2:Relation", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.8 | D:0.0 | T:0.2 ]", "dirac": "0.8|I⟩ + 0.2|T⟩", "rdfs:label": "Relation" },
+
+    /* 8. TELEONOMY */
+    { "@id": "m2:Attractor", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.1 | D:0.1 | T:0.8 ]", "dirac": "0.1|I⟩ + 0.1|D⟩ + 0.8|T⟩", "rdfs:label": "Attractor" },
+    { "@id": "m2:Synergy", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.1 | I:0.1 | D:0.2 | T:0.8 ]", "dirac": "0.1|S⟩ + 0.1|I⟩ + 0.2|D⟩ + 0.8|T⟩", "rdfs:label": "Synergy" },
+    { "@id": "m2:Synergy_Neg", "projection": "m3:ConstructiveSpace", "tensor": "[ S:-0.2 | I:-0.2 | D:0.8 | T:-0.4 ]", "dirac": "-0.2|S⟩ - 0.2|I⟩ + 0.8|D⟩ - 0.4|T⟩", "rdfs:label": "Negative Synergy" },
+    { "@id": "m2:Tropism", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.1 | D:0.5 | T:0.4 ]", "dirac": "0.1|I⟩ + 0.5|D⟩ + 0.4|T⟩", "rdfs:label": "Tropism" },
+    { "@id": "m2:Adaptation", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.1 | I:0.3 | D:0.3 | T:0.3 ]", "dirac": "0.1|S⟩ + 0.3|I⟩ + 0.3|D⟩ + 0.3|T⟩", "rdfs:label": "Adaptation" },
+    { "@id": "m2:Resilience", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.4 | I:0.3 | D:0.0 | T:0.3 ]", "dirac": "0.4|S⟩ + 0.3|I⟩ + 0.3|T⟩", "rdfs:label": "Resilience" },
+    { "@id": "m2:Robustness", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.8 | I:0.2 | D:0.0 | T:0.0 ]", "dirac": "0.8|S⟩ + 0.2|I⟩", "rdfs:label": "Robustness" },
+    { "@id": "m2:Stability", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.6 | I:0.0 | D:0.2 | T:0.2 ]", "dirac": "0.6|S⟩ + 0.2|D⟩ + 0.2|T⟩", "rdfs:label": "Stability" },
+
+    /* 9. MAINTENANCE */
+    { "@id": "m2:Interaction", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.1 | I:0.3 | D:0.6 | T:0.0 ]", "dirac": "0.1|S⟩ + 0.3|I⟩ + 0.6|D⟩", "rdfs:label": "Interaction" },
+    { "@id": "m2:Behavior", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.0 | I:0.1 | D:0.8 | T:0.1 ]", "dirac": "0.1|I⟩ + 0.8|D⟩ + 0.1|T⟩", "rdfs:label": "Behavior" },
+    { "@id": "m2:Dysfunction", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.2 | I:-0.3 | D:0.4 | T:-0.5 ]", "dirac": "0.2|S⟩ - 0.3|I⟩ + 0.4|D⟩ - 0.5|T⟩", "rdfs:label": "Dysfunction" },
+    { "@id": "m2:Diagnostic", "projection": "m3:AnalyticalSpace", "tensor": "[ S:0.0 | I:0.8 | D:0.0 | T:0.2 ]", "dirac": "0.8|I⟩ + 0.2|T⟩", "rdfs:label": "Diagnostic" },
+    { "@id": "m2:Repair", "projection": "m3:ConstructiveSpace", "tensor": "[ S:0.5 | I:0.1 | D:0.3 | T:0.1 ]", "dirac": "0.5|S⟩ + 0.1|I⟩ + 0.3|D⟩ + 0.1|T⟩", "rdfs:label": "Repair" }
+  ]
+}

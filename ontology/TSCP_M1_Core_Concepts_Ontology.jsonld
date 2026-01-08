@@ -1,0 +1,67 @@
+{
+  "@context": {
+    "m3": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M3_Genesis_Ontology.jsonld#",
+    "m2": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M2_MetaConcepts_Ontology.jsonld#",
+    "m1": "https://github.com/Echopraxium/tscp-framework/blob/main/ontology/TSCP_M1_Core_Concepts_Ontology.jsonld#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "m1:Core_Concepts_Ontology",
+  "@type": "owl:Ontology",
+  "rdfs:label": "TSCP M1: Core Concepts (Kernel & Hooks)",
+  "versionInfo": "1.1.0-CONSOLIDATED",
+  "description": "Operational Core bridging Meta-Concepts to Domain Extensions through Hooks.",
+  "owl:imports": [{ "@id": "m2:MetaConcepts_Ontology" }],
+  "@graph": [
+    /* --- CORE CLASSES (From Source 1) --- */
+    {
+      "@id": "m1:SystemNode",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": { "@id": "m2:State" },
+      "rdfs:label": "System Node",
+      "rdfs:comment": "An operational entity defined as an instance of a Meta-State." [cite: 2]
+    },
+    {
+      "@id": "m1:OperationalTrigger",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": { "@id": "m2:Trigger" },
+      "rdfs:label": "Operational Trigger",
+      "rdfs:comment": "A specific threshold logic that monitors SystemNodes." [cite: 3]
+    },
+    {
+      "@id": "m1:ActionFlow",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": { "@id": "m2:Velocity" },
+      "rdfs:label": "Action Flow",
+      "rdfs:comment": "A sequence of state changes propelled by a Trigger." [cite: 4]
+    },
+
+    /* --- OPERATIONAL HOOKS (Added for Extensibility) --- */
+    {
+      "@id": "m1:preCondition",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": { "@id": "m1:OperationalTrigger" },
+      "rdfs:comment": "Hook for domain-specific checks before Dirac tensor evaluation."
+    },
+    {
+      "@id": "m1:logicOverride",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "m1:OperationalTrigger" },
+      "rdfs:comment": "Signature override to modify the default M2 tensor behavior in specific silos."
+    },
+    {
+      "@id": "m1:postAction",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": { "@id": "m1:OperationalTrigger" },
+      "rdfs:comment": "Extends the trigger with specific domain consequences (e.g., Margin Call liquidation)."
+    },
+    {
+      "@id": "m1:hasThreshold",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "m1:OperationalTrigger" },
+      "rdfs:range": { "@id": "xsd:float" },
+      "rdfs:comment": "The scalar value that activates the trigger collapse."
+    }
+  ]
+}

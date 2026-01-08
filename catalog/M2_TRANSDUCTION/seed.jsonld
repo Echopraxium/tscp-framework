@@ -1,0 +1,16 @@
+{
+  "Id": "M2_TRANSDUCTION",
+  "Name": "Transduction",
+  "Description": "Conversion of one form of energy to another.",
+  "Signature": {
+    "Structure": 0.2,
+    "Information": 0,
+    "Dynamics": 0.8,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Dynamics",
+    "Constructive"
+  ]
+}

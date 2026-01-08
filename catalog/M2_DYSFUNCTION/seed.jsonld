@@ -1,0 +1,16 @@
+{
+  "Id": "M2_DYSFUNCTION",
+  "Name": "Dysfunction",
+  "Description": "Abnormality or impairment.",
+  "Signature": {
+    "Structure": 0.5,
+    "Information": 0,
+    "Dynamics": 0.5,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Complex",
+    "Analytic"
+  ]
+}

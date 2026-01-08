@@ -1,0 +1,16 @@
+{
+  "Id": "M2_COMPONENT",
+  "Name": "Component",
+  "Description": "A part of a larger system.",
+  "Signature": {
+    "Structure": 0.9,
+    "Information": 0,
+    "Dynamics": 0.1,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Architecture",
+    "Constructive"
+  ]
+}

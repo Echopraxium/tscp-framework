@@ -1,0 +1,16 @@
+{
+  "Id": "M2_BIFURCATION",
+  "Name": "Bifurcation",
+  "Description": "The division of something into two branches or parts.",
+  "Signature": {
+    "Structure": 0,
+    "Information": 0.5,
+    "Dynamics": 0.5,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Complex",
+    "Analytic"
+  ]
+}

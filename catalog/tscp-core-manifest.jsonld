@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "tscp": "https://tscp.dev/core/v5#",
+    "m1": "https://tscp.dev/modules/narrative#"
+  },
+  "@graph": [
+    {
+      "@id": "tscp:Vector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "System Vector",
+      "rdfs:comment": "Base dimension for system definition (S, I, D, T)."
+    },
+    {
+      "@id": "tscp:StructureVector",
+      "@type": "tscp:Vector",
+      "rdfs:label": "Structure |S>",
+      "tscp:index": 0
+    },
+    {
+      "@id": "tscp:InformationVector",
+      "@type": "tscp:Vector",
+      "rdfs:label": "Information |I>",
+      "tscp:index": 1
+    },
+    {
+      "@id": "tscp:DynamicsVector",
+      "@type": "tscp:Vector",
+      "rdfs:label": "Dynamics |D>",
+      "tscp:index": 2
+    },
+    {
+      "@id": "tscp:TeleonomyVector",
+      "@type": "tscp:Vector",
+      "rdfs:label": "Teleonomy |T>",
+      "tscp:index": 3
+    },
+    {
+      "@id": "tscp:Connector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Vector Connector",
+      "rdfs:comment": "Mechanism linking two orthogonal vectors to produce a system state change."
+    },
+    {
+      "@id": "tscp:ConnectorSI",
+      "@type": "tscp:Connector",
+      "rdfs:label": "Structure-Information Bridge",
+      "tscp:source": { "@id": "tscp:StructureVector" },
+      "tscp:target": { "@id": "tscp:InformationVector" }
+    },
+    {
+      "@id": "m1:NarrativeStep",
+      "@type": "rdfs:Class",
+      "rdfs:subClassOf": { "@id": "tscp:ProcessNode" },
+      "rdfs:label": "Narrative Step"
+    },
+    {
+      "@id": "m1:SystemBoot",
+      "@type": "tscp:Event",
+      "rdfs:label": "System Initialization"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Id": "M2_AGENT",
+  "Name": "Agent",
+  "Description": "A being capable of acting.",
+  "Signature": {
+    "Structure": 0.3,
+    "Information": 0.2,
+    "Dynamics": 0.3,
+    "Teleonomy": 0.2
+  },
+  "Tags": [
+    "M2",
+    "Agency",
+    "Constructive"
+  ]
+}

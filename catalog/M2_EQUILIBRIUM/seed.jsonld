@@ -1,0 +1,16 @@
+{
+  "Id": "M2_EQUILIBRIUM",
+  "Name": "Equilibrium",
+  "Description": "A state in which opposing forces or influences are balanced.",
+  "Signature": {
+    "Structure": 0.5,
+    "Information": 0,
+    "Dynamics": 0.5,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Complex",
+    "Constructive"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Id": "M2_INTERFACE",
+  "Name": "Interface",
+  "Description": "Surface forming a common boundary.",
+  "Signature": {
+    "Structure": 0.7,
+    "Information": 0,
+    "Dynamics": 0.3,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Architecture",
+    "Constructive"
+  ]
+}

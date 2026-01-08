@@ -1,0 +1,16 @@
+{
+  "Id": "M2_SUBSTRATE",
+  "Name": "Substrate",
+  "Description": "The underlying substance or layer.",
+  "Signature": {
+    "Structure": 0.8,
+    "Information": 0,
+    "Dynamics": 0.2,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Architecture",
+    "Constructive"
+  ]
+}

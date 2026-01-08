@@ -2,9 +2,6 @@ namespace TSCP.Core
 
 open System
 
-// uuid: 8f4b2c1a-9e3d-4c5b-8a7f-1d2e3f4g5h6i
-// TSCP.Core - Domain Model (M3 Layer)
-
 module Domain =
 
     /// <summary>

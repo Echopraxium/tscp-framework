@@ -1,0 +1,16 @@
+{
+  "Id": "M2_RULE",
+  "Name": "Rule",
+  "Description": "One of a set of explicit or understood regulations.",
+  "Signature": {
+    "Structure": 0,
+    "Information": 0.7,
+    "Dynamics": 0,
+    "Teleonomy": 0.3
+  },
+  "Tags": [
+    "M2",
+    "Logic",
+    "Analytic"
+  ]
+}

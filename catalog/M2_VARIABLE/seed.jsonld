@@ -1,0 +1,16 @@
+{
+  "Id": "M2_VARIABLE",
+  "Name": "Variable",
+  "Description": "An element, feature, or factor that is liable to vary.",
+  "Signature": {
+    "Structure": 0.1,
+    "Information": 0.9,
+    "Dynamics": 0,
+    "Teleonomy": 0
+  },
+  "Tags": [
+    "M2",
+    "Logic",
+    "Analytic"
+  ]
+}
