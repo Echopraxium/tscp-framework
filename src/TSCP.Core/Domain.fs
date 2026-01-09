@@ -2,59 +2,69 @@ namespace TSCP.Core
 
 open System
 
+/// <summary>
+/// Domain Types for TSCP Framework.
+/// </summary>
 module Domain =
 
-    /// <summary>
-    /// Meta-Attribute for fine-grained versioning and semantic linking.
-    /// Allows binding a compiled Type or Member to its M3 Concept ID.
-    /// </summary>
+    // --- 1. ATTRIBUTS CROSS-LANGAGE (M3 Meta-Data) ---
+
     [<AttributeUsage(AttributeTargets.All, AllowMultiple = false)>]
     type UuidAttribute(uuid : string) =
         inherit Attribute()
         member this.Uuid = uuid
 
+    // --- 2. TYPES FONDAMENTAUX ---
+
     /// The 4 Fundamental Invariants of the M3 State Space.
     [<Uuid("5a6b7c8d-9e0f-1a2b-3c4d-5e6f7g8h9i0j")>]
+    type Axis = 
+        | Structure 
+        | Information
+        | Dynamics 
+        | Teleonomy
+
+    [<CLIMutable>]
     type SystemicVector = {
-        Structure: float
-        Information: float
-        Dynamics: float
-        Teleonomy: float
+        Structure : float
+        Information : float
+        Dynamics : float
+        Teleonomy : float
     }
 
-    type ConceptId = string
-
-    /// Represents an abstract Concept in the Systemic Space.
-    [<Uuid("1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6")>]
+    [<CLIMutable>]
     type Concept = {
-        Id: ConceptId
-        Name: string
-        Description: string
-        Signature: SystemicVector
-        Tags: string list
+        Id : string
+        Name : string
+        Description : string
+        Signature : SystemicVector
+        Tags : string list
     }
 
-    type RelationshipType =
-        | Composition      
-        | Aggregation      
-        | Isotopy          
-        | Instantiation    
+    // --- 3. SESSION & HISTORIQUE ---
 
-    type Relationship = {
-        SourceId: ConceptId
-        TargetId: ConceptId
-        Type: RelationshipType
-        Weight: float
+    type SessionEntry =
+        | Log of string
+        | ActiveConcept of Concept
+        with
+            // Propriétés pour le pattern matching C#
+            member this.IsLogEntry = match this with Log _ -> true | _ -> false
+            member this.IsConceptEntry = match this with ActiveConcept _ -> true | _ -> false
+            
+            // Helpers d'accès sécurisé (Zero Trust)
+            member this.GetLogContent() = match this with Log s -> s | _ -> ""
+            member this.GetConcept() = match this with ActiveConcept c -> Some c | _ -> None
+
+    /// <summary>
+    /// Represents the current state of the user session.
+    /// </summary>
+    type SessionState = {
+        History : SessionEntry list
+        ActiveLayer : float
     }
-
-    // --- Helpers ---
-    let zeroVector = { Structure = 0.0; Information = 0.0; Dynamics = 0.0; Teleonomy = 0.0 }
-    let unitVector = { Structure = 1.0; Information = 1.0; Dynamics = 1.0; Teleonomy = 1.0 }
-
-    let createConcept id name desc vector tags = {
-        Id = id
-        Name = name
-        Description = desc
-        Signature = vector
-        Tags = tags
-    }
+    with
+        // Point d'entrée statique pour C#
+        static member Default = { History = []; ActiveLayer = 1.0 }
+        
+    // Valeur par défaut pour les vecteurs
+    let zeroVector = { Structure=0.0; Information=0.0; Dynamics=0.0; Teleonomy=0.0 }

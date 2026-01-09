@@ -1,33 +1,47 @@
-// uuid: e9d8c7b6-a5f4-4321-8019-e1d2c3b4a5f6
 using System;
-using System.IO;
 using System.Linq;
-using System.Collections.Generic;
 using TSCP.Core;
-using static TSCP.Core.Domain; // Access to Concept, SystemicVector, etc.
 using Microsoft.FSharp.Collections;
 using Microsoft.FSharp.Core;
 
 namespace TSCP.CLI
 {
-	[Uuid("9c0e1f2a-3b4c-5d6e-7f8g-9h0i1j2k3l4m")]
+    // FIX : Qualification complète de l'attribut (TSCP.Core.Domain.UuidAttribute)
+    [TSCP.Core.Domain.Uuid("48a2c5b1-79e3-4d6f-8a1b-9c2d3e4f5a6b")]
     class Program
     {
-        // Initialize State with the new F# Record structure
-        private static SessionState _state = SessionManager.createDefault();
+        // État de session (Qualified name pour éviter ambiguïté)
+        private static TSCP.Core.Domain.SessionState _state = TSCP.Core.Domain.SessionState.Default;
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("=== TSCP Systemic Framework (Core 4 Engine) ===");
+            Console.WriteLine("=== TSCP Systemic Framework (Core 5 Engine) ===");
             Console.WriteLine("Architecture: [Structure | Information | Dynamics | Teleonomy]");
+            
+            // FIX : Réflexion avec le type complet
+            var uuid = typeof(Program).GetCustomAttributes(typeof(TSCP.Core.Domain.UuidAttribute), false)
+                                      .FirstOrDefault() as TSCP.Core.Domain.UuidAttribute;
+            
+            if (uuid != null) Console.WriteLine($"Module ID:    {uuid.Uuid}");
+
             Console.ResetColor();
             Console.WriteLine("Type 'help' for a list of commands.");
 
-            // Initial load of catalog to verify M3 binding
-            var initialCount = Catalog.loadFromDisk().Length;
-            Console.WriteLine($"System initialized. {initialCount} concepts available in Catalog.");
+            try 
+            {
+                var concepts = Catalog.loadAll();
+                Console.WriteLine($"[Init] System initialized. {concepts.Length} concepts loaded via Catalog.");
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[Init Error] {ex.Message}");
+                Console.ResetColor();
+            }
 
+            // Boucle REPL
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -69,8 +83,32 @@ namespace TSCP.CLI
                     PrintHelp();
                     break;
 
-                case "pwd":
-                    Console.WriteLine($"Catalog Root: {Catalog.getCatalogPath()}");
+                case "clear":
+                case "cls":
+                    Console.Clear();
+                    break;
+
+                case "reload":
+                    try 
+                    {
+                        var reloaded = Catalog.loadAll();
+                        Console.WriteLine($"[Reload] Catalog synchronized. {reloaded.Length} concepts active.");
+                    }
+                    catch (Exception ex) 
+                    {
+                        Console.WriteLine($"[Error] Reload failed: {ex.Message}");
+                    }
+                    break;
+
+                case "sysinfo":
+                case "version":
+                    // FIX : Utilisation du type complet TSCP.Core.Domain.UuidAttribute
+                    var programUuid = typeof(Program).GetCustomAttributes(typeof(TSCP.Core.Domain.UuidAttribute), false)
+                                            .FirstOrDefault() as TSCP.Core.Domain.UuidAttribute;
+                    Console.WriteLine("--- System Information ---");
+                    Console.WriteLine($"CLI Module:  {programUuid?.Uuid ?? "Unknown"}");
+                    Console.WriteLine($"Core State:  {_state.ActiveLayer} (Layer)");
+                    Console.WriteLine($"Framework:   .NET 10");
                     break;
 
                 case "catalog":
@@ -79,8 +117,10 @@ namespace TSCP.CLI
                     break;
 
                 case "load":
-                    if (args.Count > 0) HandleLoad(args[0]);
-                    else Console.WriteLine("Usage: load <id_or_index>");
+                case "simulate":
+                case "analyze":
+                case "analyse":
+                    RunEngineCommand(input);
                     break;
 
                 case "inspect":
@@ -89,42 +129,28 @@ namespace TSCP.CLI
                     else Console.WriteLine("Usage: inspect <id_or_index>");
                     break;
 
-                case "analyse":
-                case "analyze":
-                    HandleAnalyze();
-                    break;
-
-                case "list":
                 case "history":
                     HandleHistory();
                     break;
 
                 case "reset":
-                    _state = SessionManager.createDefault();
-                    Console.WriteLine("Session reset to M3 default.");
-                    break;
-
-                case "export":
-                    Console.WriteLine("Export functionality is being refactored for M3 Vectors.");
+                    _state = TSCP.Core.Domain.SessionState.Default;
+                    Console.WriteLine("Session reset to default.");
                     break;
 
                 default:
-                    // Delegate generic commands to the F# Engine
-                    RunEngineCommand(cmd);
+                    RunEngineCommand(input);
                     break;
             }
         }
 
         static void HandleCatalog()
         {
-            var items = Catalog.loadFromDisk();
-            if (items.IsEmpty) 
-            {
-                Console.WriteLine("Warning: Catalog is empty.");
-            }
+            var items = Catalog.loadAll();
+            if (items.Length == 0) Console.WriteLine("Warning: Catalog is empty.");
             else 
             {
-                Console.WriteLine("\n--- Available Concepts (M2/M1) ---");
+                Console.WriteLine("\n--- Available Concepts ---");
                 int i = 1;
                 foreach (var c in items)
                 {
@@ -132,30 +158,6 @@ namespace TSCP.CLI
                     PrintVector(c.Signature);
                     i++;
                 }
-            }
-        }
-
-        static void HandleLoad(string idOrIdx)
-        {
-            var concept = ResolveConcept(idOrIdx);
-
-            if (concept != null) 
-            {
-                // Create a new ActiveConcept entry
-                var entry = SessionEntry.NewActiveConcept(concept);
-                
-                // Update State (Immutable F# list prepend)
-                var newHistory = FSharpList<SessionEntry>.Cons(entry, _state.History);
-                
-                // Update the state record
-                _state = new SessionState(newHistory, _state.ActiveLayer);
-
-                Console.WriteLine($"Loaded '{concept.Name}' into active context.");
-                PrintVector(concept.Signature);
-            } 
-            else 
-            {
-                Console.WriteLine($"Error: Concept '{idOrIdx}' not found.");
             }
         }
 
@@ -171,32 +173,7 @@ namespace TSCP.CLI
                 Console.WriteLine($"Tags:        {string.Join(", ", c.Tags)}");
                 Console.WriteLine("========================================");
             }
-            else
-            {
-                Console.WriteLine("Concept not found.");
-            }
-        }
-
-        static void HandleAnalyze()
-        {
-            // Extract ActiveConcepts from F# List history
-            var concepts = _state.History
-                .Where(e => e.IsActiveConcept)
-                .Select(e => ((SessionEntry.ActiveConcept)e).Item)
-                .ToList();
-
-            // Convert C# List to F# List for the Engine
-            var fsList = ListModule.OfSeq(concepts);
-
-            // Call Engine
-            var metrics = Engine.calculateMetrics(fsList);
-
-            Console.WriteLine("\n--- Systemic Analysis (Core 4) ---");
-            Console.WriteLine($"Dominant Invariant:   {metrics.DominantInvariant}");
-            Console.WriteLine($"System Entropy:       {metrics.Entropy:F4}");
-            Console.WriteLine($"Teleonomic Coherence: {metrics.Coherence:F4}");
-            Console.WriteLine("Average Vector:");
-            PrintVector(metrics.AverageVector);
+            else Console.WriteLine("Concept not found.");
         }
 
         static void HandleHistory()
@@ -204,20 +181,23 @@ namespace TSCP.CLI
             Console.WriteLine("\n--- Session History ---");
             foreach (var entry in _state.History) 
             {
-                if (entry.IsLog) 
+                if (entry.IsLogEntry) 
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine($"[LOG] {((SessionEntry.Log)entry).Item}");
+                    Console.WriteLine($"[LOG] {entry.GetLogContent()}");
                     Console.ResetColor();
                 }
-                else if (entry.IsActiveConcept) 
+                else if (entry.IsConceptEntry) 
                 {
-                    var c = ((SessionEntry.ActiveConcept)entry).Item;
-                    Console.Write($"[CONCEPT] {c.Name} ");
-                    // Short vector display
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine($"[T:{c.Signature.Teleonomy:F1}]");
-                    Console.ResetColor();
+                    var optC = entry.GetConcept();
+                    if (OptionModule.IsSome(optC))
+                    {
+                        var c = optC.Value;
+                        Console.Write($"[CONCEPT] {c.Name} ");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine($"[T:{c.Signature.Teleonomy:F1}]");
+                        Console.ResetColor();
+                    }
                 }
             }
         }
@@ -226,51 +206,39 @@ namespace TSCP.CLI
         {
             var result = Engine.executeCommand(cmd, _state);
             _state = result.Item1;
-            
             if (OptionModule.IsSome(result.Item2)) 
             {
                 Console.WriteLine(result.Item2.Value);
-            }
-            else
-            {
-                Console.WriteLine($"Unknown command: {cmd}");
             }
         }
 
         static void PrintHelp()
         {
             Console.WriteLine("\n=== COMMANDS ===");
-            Console.WriteLine(" catalog / ls      : List available concepts with Vector Signatures");
-            Console.WriteLine(" load <id/idx>     : Load a concept into active memory");
-            Console.WriteLine(" inspect <id/idx>  : View full details of a concept");
-            Console.WriteLine(" analyse           : Compute Entropy and Coherence of active system");
-            Console.WriteLine(" history / list    : Show session logs");
-            Console.WriteLine(" sync              : Simulate continuum shift");
+            Console.WriteLine(" catalog / ls      : List available concepts");
+            Console.WriteLine(" load <id>         : Load a concept");
+            Console.WriteLine(" simulate <id>     : Simulate interaction");
+            Console.WriteLine(" inspect <id>      : View details");
+            Console.WriteLine(" analyze           : Compute Entropy");
+            // --- AJOUT ICI ---
+            Console.WriteLine(" profile <id>      : Semantic Profiling (Nature & Peers)");
+            // -----------------
+            Console.WriteLine(" history           : Show logs");
+            Console.WriteLine(" sysinfo           : Show Module UUIDs");
+            Console.WriteLine(" reload            : Reload Catalog");
+            Console.WriteLine(" clear             : Clear screen");
             Console.WriteLine(" reset             : Clear session");
             Console.WriteLine(" exit              : Quit");
         }
 
-        // FIX: Changed return type to 'Concept?' (nullable) to resolve CS8603
-        static Concept? ResolveConcept(string idOrIdx)
+        static TSCP.Core.Domain.Concept? ResolveConcept(string idOrIdx)
         {
-            var items = Catalog.loadFromDisk();
-            
-            // 1. Try index (1-based)
-            if (int.TryParse(idOrIdx, out int idx))
-            {
-                // items is an F# list, convert to Enumerable to index
-                if (idx > 0 && idx <= items.Length)
-                {
-                    return items.ElementAt(idx - 1);
-                }
-            }
-            
-            // 2. Try ID match
+            var items = Catalog.loadAll();
+            if (int.TryParse(idOrIdx, out int idx) && idx > 0 && idx <= items.Length) return items[idx - 1];
             return items.FirstOrDefault(c => c.Id.Equals(idOrIdx, StringComparison.OrdinalIgnoreCase));
         }
 
-        // Helper to pretty-print the S-I-D-T vector
-        static void PrintVector(SystemicVector v)
+        static void PrintVector(TSCP.Core.Domain.SystemicVector v)
         {
             Console.Write("[ ");
             Console.ForegroundColor = ConsoleColor.White; Console.Write($"S:{v.Structure:F1} ");

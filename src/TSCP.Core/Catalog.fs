@@ -6,152 +6,173 @@ open System.Text.Json
 open System.Text.RegularExpressions
 open TSCP.Core.Domain
 
-// uuid: 40995f5c-9c9d-473d-9860-e7f8e8787878
-// TSCP.Core - Catalog
-// Manages the persistence and loading of Systemic Concepts from disk.
-// Handles parsing of JSON-LD Ontologies (M1/M2) to extract vector signatures.
+// TSCP.Core - Catalog (Ontology-First Architecture)
+// Version: Semantic Filtering with Explicit M3 Configuration
 module Catalog =
 
-    /// Returns the standard path for the catalog storage.
+    // --- 1. PATH MANAGEMENT ---
     let getCatalogPath () = 
-        Path.Combine(Directory.GetCurrentDirectory(), "catalog")
+        let path = Path.Combine(Directory.GetCurrentDirectory(), "catalog")
+        if not (Directory.Exists path) then Directory.CreateDirectory(path) |> ignore
+        path
 
-    /// Options for JSON serialization.
+    let getOntologyPath () =
+        let current = Directory.GetCurrentDirectory()
+        // Recursive lookup to find the 'ontology' folder
+        let candidates = 
+            [ Path.Combine(current, "ontology")
+              Path.Combine(current, "..", "ontology")
+              Path.Combine(current, "..", "..", "ontology")
+              Path.Combine(current, "..", "..", "..", "ontology") ]
+        candidates |> List.tryFind Directory.Exists
+
     let private jsonOptions = 
         let options = JsonSerializerOptions()
         options.WriteIndented <- true
         options.PropertyNameCaseInsensitive <- true
         options
 
-    // --- PARSING LOGIC FOR JSON-LD ---
+    // --- 2. KERNEL DATA (Empty) ---
+    // We rely entirely on JSON-LD files now.
+    let private kernelConcepts : Concept list = []
 
-    /// Parses a tensor string format: "[ S:0.4 | I:0.2 | D:0.2 | T:0.2 ]"
-    /// Returns a SystemicVector.
+    // --- 3. JSON-LD PARSER & TENSORS ---
+
     let private parseTensorString (tensorStr: string) =
-        // Regex to extract the 4 values (handles integer and float)
-        let pattern = @"S:([\d\.]+)\s*\|\s*I:([\d\.]+)\s*\|\s*D:([\d\.]+)\s*\|\s*T:([\d\.]+)"
+        let pattern = @"S:([\d\.-]+)\s*\|\s*I:([\d\.-]+)\s*\|\s*D:([\d\.-]+)\s*\|\s*T:([\d\.-]+)"
         let m = Regex.Match(tensorStr, pattern)
-        if m.Success then
-            { 
-                Structure   = float m.Groups.[1].Value
-                Information = float m.Groups.[2].Value
-                Dynamics    = float m.Groups.[3].Value
-                Teleonomy   = float m.Groups.[4].Value
-            }
-        else
-            // Fallback or Log warning (return zero vector if parsing fails)
-            Domain.zeroVector
+        if m.Success then 
+            { Structure = float m.Groups.[1].Value
+              Information = float m.Groups.[2].Value
+              Dynamics = float m.Groups.[3].Value
+              Teleonomy = float m.Groups.[4].Value }
+        else Domain.zeroVector
 
-    /// Tries to extract a string property from a JsonElement (case insensitive fallback).
-    /// FIXED: Uses a local mutable variable to satisfy 'byref' requirements.
-    let private getProperty (elem: JsonElement) (propName: string) =
-        let mutable value = Unchecked.defaultof<JsonElement>
-        if elem.TryGetProperty(propName, &value) then
-            if value.ValueKind = JsonValueKind.String then
-                Some (value.GetString())
-            else
-                None
-        else 
-            None
+    // CONFIGURATION LOGIC FOR M3 META-OBJECTS
+    let private getM3Configuration (id: string) =
+        match id with
+        // A. FUNDAMENTAL DIMENSIONS (Basis Vectors)
+        | "M3_STRUCTURE"   -> { Domain.zeroVector with Structure = 1.0 }
+        | "M3_INFORMATION" -> { Domain.zeroVector with Information = 1.0 }
+        | "M3_DYNAMICS"    -> { Domain.zeroVector with Dynamics = 1.0 }
+        | "M3_TELEONOMY"   -> { Domain.zeroVector with Teleonomy = 1.0 }
+        
+        // B. TENSOR SPACES (Projectors / Masks)
+        // 1.0 indicates the dimension is valid in this sub-space.
+        | "M3_ANALYTICALSPACE"   -> { Structure = 1.0; Information = 1.0; Dynamics = 0.0; Teleonomy = 0.0 }
+        | "M3_CONSTRUCTIVESPACE" -> { Structure = 0.0; Information = 0.0; Dynamics = 1.0; Teleonomy = 1.0 }
 
-    /// Parses a raw JSON-LD content to find Concepts.
-    /// Handles the specific TSCP ontology format (nodes inside @graph).
-    let private parseJsonLd (jsonContent: string) : Concept list =
+        // C. THE SUBSTRATE (Totality)
+        // Represents the full 4D Hilbert Space.
+        | "M3_HILBERTSUBSTRATE"  -> { Structure = 1.0; Information = 1.0; Dynamics = 1.0; Teleonomy = 1.0 }
+        
+        // Default (parsed later via JSON for M2/M1)
+        | _ -> Domain.zeroVector
+
+    let private parseJsonLd (content: string) : Concept list =
         try
-            let doc = JsonDocument.Parse(jsonContent)
+            let doc = JsonDocument.Parse(content)
             let root = doc.RootElement
+            let mutable graph = Unchecked.defaultof<JsonElement>
             
-            // Look for @graph array
-            // FIXED: Uses 'graphNode' mutable to receive the property safely
-            let mutable graphNode = Unchecked.defaultof<JsonElement>
-            
-            if root.TryGetProperty("@graph", &graphNode) && graphNode.ValueKind = JsonValueKind.Array then
-                graphNode.EnumerateArray()
-                |> Seq.choose (fun node ->
-                    // We only want nodes that have an ID and a Tensor definition
-                    let idOpt = getProperty node "@id"
+            if root.TryGetProperty("@graph", &graph) then
+                [ for element in graph.EnumerateArray() do
                     
-                    // Try multiple keys for Tensor (raw 'tensor' or full URI 'm3:tensorConfiguration')
-                    let tensorStrOpt = 
-                        match getProperty node "tensor" with
-                        | Some t -> Some t
-                        | None -> getProperty node "m3:tensorConfiguration"
+                    // A. TYPE ANALYSIS
+                    let mutable typeProp = Unchecked.defaultof<JsonElement>
+                    let typeStr = 
+                        if element.TryGetProperty("@type", &typeProp) then typeProp.GetString()
+                        else ""
 
-                    match idOpt, tensorStrOpt with
-                    | Some id, Some tStr ->
-                        let name = defaultArg (getProperty node "rdfs:label") id
-                        let desc = defaultArg (getProperty node "description") "Imported from Ontology"
-                        let signature = parseTensorString tStr
-                        
-                        // Detect layer based on ID prefix
-                        let tags = 
-                            if id.StartsWith("m1:") then ["M1"; "Narrative"; "Imported"]
-                            elif id.StartsWith("m2:") then ["M2"; "Pattern"; "Imported"]
-                            else ["Imported"]
+                    // B. SEMANTIC FILTER
+                    // Exclude syntactic tools (Properties, Ontologies)
+                    // Keep systemic objects (Invariants, Spaces, Classes, Concepts)
+                    let isMetaDefinition = 
+                        typeStr.Contains("owl:Property") || 
+                        typeStr.Contains("owl:Ontology") 
 
-                        Some {
-                            Id = id
-                            Name = name
-                            Description = desc
-                            Signature = signature
-                            Tags = tags
-                        }
-                    | _ -> None // Skip nodes without vector signature (like properties definitions)
-                )
-                |> Seq.toList
-            else
-                [] // No @graph found
-        with ex ->
-            printfn "Warning: Failed to parse JSON-LD content: %s" ex.Message
+                    if not isMetaDefinition then
+                        // C. EXTRACTION
+                        // ID Normalization
+                        let mutable idProp = Unchecked.defaultof<JsonElement>
+                        let id = 
+                             if element.TryGetProperty("@id", &idProp) then 
+                                idProp.GetString()
+                                      .Replace("m3:", "M3_")
+                                      .Replace("m2:", "M2_")
+                                      .Replace("m1:", "M1_")
+                                      .ToUpper()
+                             else "UNKNOWN"
+
+                        // Name
+                        let mutable nameProp = Unchecked.defaultof<JsonElement>
+                        let name =
+                            if element.TryGetProperty("rdfs:label", &nameProp) then nameProp.GetString()
+                            else id
+
+                        // Description
+                        let mutable descProp = Unchecked.defaultof<JsonElement>
+                        let description =
+                            if element.TryGetProperty("rdfs:comment", &descProp) then descProp.GetString()
+                            else "Imported from Ontology"
+
+                        // D. TENSOR LOGIC
+                        let mutable tensorProp = Unchecked.defaultof<JsonElement>
+                        let signature = 
+                            // 1. Explicit Tensor (M2 Concepts)
+                            if element.TryGetProperty("m3:tensorConfiguration", &tensorProp) then 
+                                parseTensorString (tensorProp.GetString())
+                            elif element.TryGetProperty("tensor", &tensorProp) then 
+                                parseTensorString (tensorProp.GetString())
+                            else
+                                // 2. Implicit Configuration (M3 Spaces & Dimensions)
+                                getM3Configuration id
+
+                        // E. FINAL VALIDATION
+                        if id <> "UNKNOWN" then
+                            { Id = id; Name = name; Description = description; Signature = signature; Tags = ["Ontology"; typeStr] }
+                ]
+            else []
+        with ex -> 
+            printfn "[ERROR] Parsing Ontology JSON-LD: %s" ex.Message
             []
 
-    // --- DISK OPERATIONS ---
+    // --- 4. PUBLIC API ---
 
-    /// Loads all concepts found in the catalog directory (looking for .jsonld files).
-    /// Supports both "seed.jsonld" (per folder) and standalone ontology files.
-    let loadFromDisk () : Concept list =
-        let p = getCatalogPath()
-        if not (Directory.Exists p) then 
-            []
-        else 
-            // 1. Load from Folders (Standard Structure)
-            let folderConcepts = 
-                Directory.GetDirectories(p, "*") 
-                |> Array.toList 
-                |> List.choose (fun d ->
-                    let f = Path.Combine(d, "seed.jsonld")
-                    if File.Exists f then 
-                        try 
-                            let content = File.ReadAllText f
-                            // Try standard deserialize first (for files created by saveToDisk)
-                            try 
-                                Some(JsonSerializer.Deserialize<Concept>(content, jsonOptions))
-                            with _ -> 
-                                // Fallback: try parsing as simple JSON-LD node
-                                parseJsonLd content |> List.tryHead
-                        with ex -> 
-                            printfn "Error loading %s: %s" f ex.Message
-                            None 
-                    else None
-                )
+    let loadAll () =
+        let kernel = kernelConcepts
 
-            // 2. Load from Standalone Ontology Files (e.g., TSCP_M1_Ontology_Core.jsonld placed in root)
-            let ontologyConcepts =
-                Directory.GetFiles(p, "*.jsonld")
+        let ontologyConcepts =
+            match getOntologyPath() with
+            | Some path ->
+                try
+                    Directory.GetFiles(path, "*.jsonld")
+                    |> Array.toList
+                    |> List.collect (fun f -> File.ReadAllText f |> parseJsonLd)
+                with _ -> []
+            | None -> []
+
+        let userConcepts =
+            let p = getCatalogPath()
+            try
+                Directory.GetFiles(p, "*.json", SearchOption.AllDirectories)
                 |> Array.toList
-                |> List.collect (fun f ->
-                    let content = File.ReadAllText f
-                    parseJsonLd content
-                )
+                |> List.choose (fun f ->
+                    try 
+                        let c = JsonSerializer.Deserialize<Concept>(File.ReadAllText f, jsonOptions)
+                        if box c <> null then Some c else None
+                    with _ -> None)
+            with _ -> []
 
-            folderConcepts @ ontologyConcepts
+        (kernel @ ontologyConcepts @ userConcepts)
+        |> List.filter (fun c -> not (String.IsNullOrWhiteSpace(c.Id)) && c.Id <> "UNKNOWN")
+        |> List.groupBy (fun c -> c.Id)
+        |> List.map (fun (_, instances) -> List.last instances)
 
-    /// Saves a Concept to disk as a simple JSON (Standard Persistence).
     let saveToDisk (concept: Concept) =
         let p = getCatalogPath()
-        let dir = Path.Combine(p, concept.Id.Replace(":","_")) // Sanitize ID for folder name
-        if not (Directory.Exists dir) then Directory.CreateDirectory(dir) |> ignore
-        
-        let path = Path.Combine(dir, "seed.jsonld")
+        let safeId = concept.Id.Replace(":", "_").Replace("/", "_").Replace("\\", "_")
+        let filename = sprintf "%s.json" safeId
+        let path = Path.Combine(p, filename)
         let json = JsonSerializer.Serialize(concept, jsonOptions)
         File.WriteAllText(path, json)

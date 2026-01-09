@@ -14,30 +14,27 @@
   "description": "Operational Core bridging Meta-Concepts to Domain Extensions through Hooks.",
   "owl:imports": [{ "@id": "m2:MetaConcepts_Ontology" }],
   "@graph": [
-    /* --- CORE CLASSES (From Source 1) --- */
     {
       "@id": "m1:SystemNode",
       "@type": "owl:Class",
       "rdfs:subClassOf": { "@id": "m2:State" },
       "rdfs:label": "System Node",
-      "rdfs:comment": "An operational entity defined as an instance of a Meta-State." [cite: 2]
+      "rdfs:comment": "An operational entity defined as an instance of a Meta-State."
     },
     {
       "@id": "m1:OperationalTrigger",
       "@type": "owl:Class",
       "rdfs:subClassOf": { "@id": "m2:Trigger" },
       "rdfs:label": "Operational Trigger",
-      "rdfs:comment": "A specific threshold logic that monitors SystemNodes." [cite: 3]
+      "rdfs:comment": "A specific threshold logic that monitors SystemNodes."
     },
     {
       "@id": "m1:ActionFlow",
       "@type": "owl:Class",
       "rdfs:subClassOf": { "@id": "m2:Velocity" },
       "rdfs:label": "Action Flow",
-      "rdfs:comment": "A sequence of state changes propelled by a Trigger." [cite: 4]
+      "rdfs:comment": "A sequence of state changes propelled by a Trigger."
     },
-
-    /* --- OPERATIONAL HOOKS (Added for Extensibility) --- */
     {
       "@id": "m1:preCondition",
       "@type": "owl:ObjectProperty",
